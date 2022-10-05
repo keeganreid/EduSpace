@@ -10,6 +10,7 @@ function App() {
       <SideBar/>
      <Pages/>
     </div>
+//<!--kcghcjgcjhcjh-->
   );
 }
 
