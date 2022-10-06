@@ -66,6 +66,55 @@
     justify-content: start;
     align-items: center;
   }
+
+  .button1{
+    background-color: rgb(184, 183, 183);
+    /*position: absolute;*/
+    top:50%;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:50px; 
+    min-width: 150px;
+    color: #800000;
+    border: none; 
+    font-size:30px;
+  }
+
+  .button2{
+
+    background-color: #800000;
+    top:50%;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:50px; 
+    min-width: 150px;
+    color: white;
+    border: none; 
+    font-size:30px;
+  }
+
+  .banner3 {
+    /*background-image: url('/eduspace/public/Banner3.jpg'); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 100%; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    /*overflow: hidden;
+    position: fixed;*/
+  }
+
+  #centerwrap { 
+    position: relative;
+   top: 0px;
+   left: 50%;
+   right: 50%
+   /*margin-left: -500px; */
+   }   
+
+  
   
   span {
     margin-left: 16px;

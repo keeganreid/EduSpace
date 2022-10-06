@@ -71,10 +71,11 @@ const SignUp = () => {
                         required
                         ref={passwordRef}
                     />
-
+                        <p></p>
                     <label htmlFor="confirm_pwd">
                         Confirm Password:
                     </label>
+                    
                     <input
                         type="password"
                         id="confirm_pwd"
