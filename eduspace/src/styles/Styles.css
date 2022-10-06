@@ -70,3 +70,42 @@
   span {
     margin-left: 16px;
   }
+
+  h1, p {
+    font-family: Lato;
+  }
+.itemsInCart  {
+   margin-left:400mm;
+  /*text-align: right; */
+  position:absolute;
+  left:2mm; top:5mm;
+}
+.totalPayable {
+  margin-left:400mm;
+  position:absolute;
+  left:2mm; top:10mm; 
+}
+
+ .itemList{
+  margin-left:400mm;
+  /*position:absolute;
+  left:80px; top:45px;*/
+} 
+
+.itemsForSale{
+  margin-left:10mm;
+  position:absolute;
+  left:10mm; top:20mm; 
+}
+
+.addButton{
+  position:relative;
+  left:10mm; 
+  /* top:-1mm; */
+}
+
+.itemPrice{
+  position:relative;
+  left:-2mm;
+  top:11mm;
+}
