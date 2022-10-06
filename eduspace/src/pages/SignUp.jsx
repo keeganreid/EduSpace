@@ -55,13 +55,10 @@ const SignUp = () => {
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
         } catch (e) {
-            if (e.message === "auth/email-already-exists")
-                console.log(e)
-
-            return setError("Failed to create an account.")
-        }
-        setLoading(false)
-        navigate("/")
+                return setError("Cannot create an account.");
+            }
+            setLoading(false);
+            navigate('/');
     }
 
     return (
@@ -125,8 +122,8 @@ const SignUp = () => {
                                 id="confirm_pwd"
                             />
                             <img
-                                title={isRevealPwd ? "Hide password" : "Show password"}
-                                src={isRevealPwd ? hidePwdImg : showPwdImg}
+                                title={isRevealCPwd ? "Hide password" : "Show password"}
+                                src={isRevealCPwd ? hidePwdImg : showPwdImg}
                                 onClick={() => setIsRevealCPwd(prevState => !prevState)}
                                 alt="Hide/Show Password Eye"
                             />

@@ -43,13 +43,13 @@ const Login = () => {
             setError("")
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            navigate("/")
         } catch(e) {
             console.log(e)
             setError("Email/Password combination not found.")
         }
 
-        setLoading(false)
+        setLoading(false);
+        navigate("/");
     }
 
     return (
