@@ -4,7 +4,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SideBarData';
 import { IconContext } from 'react-icons';
-import '../styles/Styles.css';
+
 
 
 /* function SideBar() {

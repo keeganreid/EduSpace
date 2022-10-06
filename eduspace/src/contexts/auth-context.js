@@ -17,11 +17,18 @@ export function AuthProvider({ children }) {
     function signup(email, password) {
         methods.createUserWithEmailAndPassword(auth, email, password).then(
           cred =>{
+            let userType;
+            if (email.substring(email.indexOf('@') + 1) === "sun.ac.za"){
+                userType = "student";
+            }
+            else{
+                userType = "company";
+            }
             let data = {
-                email: cred.user.email
+                email: cred.user.email,
+                type: userType
             };
             return setDoc(doc(users, cred.user.uid), data);
-
           }
         )
     }

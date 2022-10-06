@@ -67,6 +67,94 @@
     align-items: center;
   }
   
-  span {
-    margin-left: 16px;
+
+  .pageHeading{
+    font-size: 2.5em;
+    font-weight: 100;
+    color:rgb(102, 4, 37);
+    text-align: center;
+  }
+
+  .marginPage{
+    margin:2em;
+    display: grid;
+    justify-content: center;
+  }
+
+  .login-register-back{
+    background-color: rgba(102, 4, 37, 0.249);
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-bottom: 0.5em;
+    display:grid;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 5%;
+  }
+
+  .textInput{
+    margin: auto;
+    height: 2em;
+    width: 70vh;
+    border-radius: 0.2em;
+    background-color: rgb(242, 236, 236);
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    border: none;
+    outline: none;
+  }
+
+  .bigButton{
+    margin: auto;
+    height: 2em;
+    width: 70.5vh;
+    border-radius: 0.2em;
+    background-color: rgb(102, 4, 37);
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    border: none;
+    outline: none;
+    color: rgb(242, 236, 236)
+  }
+
+  .bigButton:hover{
+    cursor: pointer;
+    background-color: rgba(102, 4, 37, 0.862);
+  }
+
+  .signIn{
+    text-decoration: none;
+    color: rgb(102, 4, 37);
+  }
+
+  .signIn:visited{
+    text-decoration: none;
+    color: rgb(102, 4, 37);
+  }
+
+  .signIn:hover{
+    color:blue;
+  }
+
+  .redText{
+    color:rgb(102, 4, 37);
+  }
+
+  .errorMessage{
+    color:rgb(102, 4, 37);
+    font-size: 1.3em;
+  }
+
+  .pwd-container {
+    position: relative;
+    width: 295px;
+  }
+  
+  .pwd-container img {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    left: 450px;
+    top: 15px;
   }
