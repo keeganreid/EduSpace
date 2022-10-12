@@ -29,6 +29,9 @@ export const methods = {
   onAuthStateChanged,
   signOut
 }
+ //What I added to be able to write and view the messages 
+
+
 
 export default app;
 

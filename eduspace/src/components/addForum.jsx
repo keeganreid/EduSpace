@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import {  addDoc } from 'firebase/firestore';
 //import '../styles/style.css';
 import { forums } from '../lib/firestore-collections';
+import {withRouter,Link} from 'react-router-dom';
+
 
 
   function AddForum()
   {
+
     const [title, setTitle] = useState('');
     const[message, setMessage] = useState('');
     const[topic, setTopic] = useState('');
@@ -14,8 +17,23 @@ import { forums } from '../lib/firestore-collections';
     function handleSubmit(e){
       e.preventDefault();
 
-  addDoc(forums,{title, message, topic});
-}
+      addDoc(forums,{title, message, topic});
+      //window.location.reload();
+      return addDoc();
+      
+  }   
+  function handleSubmit1(e){
+    //e.preventDefault();
+
+    addDoc(forums,{title, message, topic});
+    //window.location.reload();
+    
+    return addDoc();
+    
+} 
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
   /* return (
     <div id="thread">
@@ -38,12 +56,14 @@ import { forums } from '../lib/firestore-collections';
 
   return (
     <div>
+     
         <form onSubmit={handleSubmit}>
             <input type='text' id='title' value={title} onChange = {e => setTitle(e.target.value)}/>
             <input type='text' id='message' value={message} onChange = {e => setMessage(e.target.value)}/>
             <input type='text' id='topic' value={topic} onChange = {e => setTopic(e.target.value)}/>
 
-            <button type='submit'>Add forum</button>
+            <button type = 'submit' >Add forum</button>
+           {/* <button type='submit'>Add a comment</button>*/}
 
         </form>
     </div>

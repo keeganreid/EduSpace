@@ -122,7 +122,55 @@
     background-color: #eee; /* For distinguishing every other post */
   }
   
+  /* The chat room css*/
+  .chat-room-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chat-room-list li {
+    height: 100px;
+    background: var(--color-gray);
+    flex: 1 1 calc(50% - 4px);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messages-container {
+  width: 100%;
+  padding: 16px;
+  flex-grow: 1;
+  border: 1px solid var(--color-gray);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-input-container {
+  display: flex;
+  gap: 4px;
+}
+
+.message-input {
+  padding: 12px 8px;
+  flex: 1;
+  background: var(--color-gray);
+  border-radius: var(--border-radius);
+}
+
+.send-message {
+  padding: 12px 14px;
+  background: var(--color-blue);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+/*end of the message css*/
   span {
     margin-left: 16px;
   }
+
 

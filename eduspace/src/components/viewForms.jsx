@@ -1,29 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { getDocs} from 'firebase/firestore';
+import { getDocs, onSnapshot, query,collection} from 'firebase/firestore';
 //import '../styles/style.css';
 import { forums } from '../lib/firestore-collections';
 
 
 export default function Forum() {
   const [Forum, setForums] = useState([]);
+  const [messages, setMessages] = useState(null);
+  const [snapShot, setSnapShot]= useState([]);
 
-  useEffect(() => {
-    getForums();
-  }, []);
+  useEffect(
+    () =>
+     onSnapshot(forums, (snapShot) =>
+    setForums(snapShot.docs.map((doc) => doc ))
+    ),[]);
 
-  function getForums() {
 
-    getDocs(forums)
-      .then((response) => {
-        const forum = response.docs.map((doc) => ({
-          data: doc.data(),
-          id: doc.id,
-        }));
-        setForums(forum);
-      })
-      .catch((error) => console.log(error.message));
-  }
 
+    
+
+
+     
+   // }
+    // onSnapshot(getDocs)
+    // getDocs(forums)
+    //   .then((response) => {
+    //     const forum = response.docs.map((doc) => ({
+    //       data: doc.data(),
+    //       id: doc.id,
+    //     }));
+    //     setForums(forum);
+    //   })
+    //   .catch((error) => console.log(error.message));
+  
+
+  
+    
 
   /* return (
     <div id="thread">
@@ -52,15 +64,15 @@ export default function Forum() {
       <div key={forum.id} className="thread-post" >
 
         
-        {forum.data.title}
+        {forum.data().title}
       
         <br></br>
         
-        {forum.data.message}
+        {forum.data().message}
 
         <br></br>
 
-        {forum.data.topic}
+        {forum.data().topic}
 
         
       </div>
@@ -69,5 +81,6 @@ export default function Forum() {
     </div>
 
   )
+
 
 }

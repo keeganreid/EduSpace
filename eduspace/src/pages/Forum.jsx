@@ -9,8 +9,12 @@ export default function Forum() {
 
   return (
     <div>
+      
       <ViewForms/>
       <AddForum/>
+      
+      
+      
     </div>
 
   )
