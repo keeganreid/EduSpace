@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .navbar {
     background-color: #060b26;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
+    z-index: 100;
   }
+
   
   .menu-bars {
     margin-left: 2rem;
@@ -22,11 +26,13 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 1;
   }
   
   .nav-menu.active {
     left: 0;
     transition: 350ms;
+    z-index: 1;
   }
   
   .nav-text {
@@ -35,7 +41,9 @@
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
+    font-family: 'Lato', sans-serif;
     height: 60px;
+    display: block !important;
   }
   
   .nav-text a {
@@ -70,3 +78,203 @@
   span {
     margin-left: 16px;
   }
+
+
+  /* Popup style */
+.popup-box {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(167, 173, 167, 0.3);
+  z-index: 10;
+}
+ 
+.box {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+  background: rgb(139, 29, 29);
+  z-index: 10;
+}
+ 
+.btn-close {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+  z-index: 10;
+}
+
+.boxed {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+}
+
+.boxed2 {
+  position: absolute;
+  left: 1140px;
+  top: 200px;
+}
+
+.calendarStyles {
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  z-index: 0;
+}
+
+/* Survey styling */
+.a1 {
+  /* display: inline-block; */
+  float: left;
+  margin: 0 1.5%;
+  background-color: #079c20;
+  border: 60px solid #079c20;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a1:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.a2 {
+  /* display: inline-block; */
+  float: right;
+  margin: 0 1.5%;
+  background-color: #00A4BD;
+  border: 60px solid #00A4BD;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a3 {
+  /* display: inline-block; */
+  float: left;
+  margin: 0 1.5%;
+  background-color: #f06e17;
+  border: 60px solid #f06e17;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a4 {
+  /* display: inline-block; */
+  float: right;
+  margin: 0 1.5%;
+  background-color: #056388;
+  border: 60px solid #056388;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a5 {
+  /* display: inline-block; */
+  float: left;
+  margin: 0 1.5%;
+  background-color: #d3c613;
+  border: 60px solid #d3c613;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a6 {
+  /* display: inline-block; */
+  float: right;
+  margin: 0 1.5%;
+  background-color: #e00000;
+  border: 60px solid #e00000;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a7 {
+  /* display: inline-block; */
+  float: left;
+  margin: 0 1.5%;
+  background-color: #0db994;
+  border: 60px solid #0db994;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a8 {
+  /* display: inline-block; */
+  float: right;
+  margin: 0 1.5%;
+  background-color: #b80229;
+  border: 60px solid #b80229;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a9 {
+  /* display: inline-block; */
+  float: left;
+  margin: 0 1.5%;
+  background-color: #a7009e;
+  border: 60px solid #a7009e;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+.a10 {
+  /* display: inline-block; */
+  float: right;
+  margin: 0 1.5%;
+  background-color: #f04e69;
+  border: 60px solid #f04e69;
+  padding: 10px;
+  border-radius: 1rem;
+  width: 30%;
+}
+
+/* styling the button */
+.click {
+  border-radius: 2rem;
+}
+.click:hover {
+  opacity: 0.3;
+}
+
+/* functionality survey styles */
+.functionalitySurvey {
+  font-family: sans-serif;
+}
+.functionalitySurvey h1 {
+  text-align: center;
+}
+.functionalitySurvey h2 {
+  text-align: center;
+}
