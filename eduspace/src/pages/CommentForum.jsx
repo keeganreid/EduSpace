@@ -1,98 +1,79 @@
-import React, { useEffect,useState } from 'react'
-import { getDocs, onSnapshot, query,collection} from 'firebase/firestore';
+import React, { useEffect, useState, useRef } from 'react'
+import { getDocs, getDoc, onSnapshot, query, collection, where, addDoc } from 'firebase/firestore';
 import { forums } from '../lib/firestore-collections';
-import {useParams,NavLink} from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 import { async } from '@firebase/util';
+
+
+
+
+
+
 
 function CommentForum() {
 
-    const [cmnt,setComments] = useState([]);
-    const params = useParams();
-    const frmId = params.frmID;
+  const [cmnt, setComments] = useState([]);
+  const params = useParams();
+  const frmID = params.frmID;
+  const messageRef= useRef();
+  const qComments = collection(forums, frmID, "comments")
 
-    const getForum = async(name)=>{
 
-        const data = await fetch (
-                
-        );
-    }
 
-    useEffect(() =>{
-console.log(frmId)
 
-},[frmId]);
+  useEffect(() => {
+    onSnapshot(qComments, (snapShot) =>
+      setComments(snapShot.docs.map((doc) => doc)))
+  }, [frmID])
 
-    // const [comments, setComments] = useState();*/
-    // const [Forum, setForums] = useState([]);//added from the forums
-    // //const params = useParams();
-     
 
-    // useEffect(      //added from the forums
-    //     () =>
-    //      onSnapshot(forums, (snapShot) =>
-    //     setForums(snapShot.docs.map((doc) => doc ))
-    //     ),[]);
+
+    function handleSubmit(e){
+      e.preventDefault();
+
+      const message = messageRef.current.value;
+
+      addDoc(qComments, {message});
+      //window.location.reload();
+     // return addDoc();
+      
+  }   
+
+
+
+
+
+
+
+
 
   return (
 
-        //added code from the viewforums
-    //     <div id="thread" >
-  
-  
-    //     {Forum.map((forum) =>
-    //     <NavLink to={`/comment/${forum.id}`}>
-    //     <div key={frmId} className="thread-post">
-       
-          
-    //       {forum.data().title}
-          
-        
-    //       <br></br>
-          
-    //       {forum.data().message}
-  
-    //       <br></br>
-          
-  
-    //       {forum.data().topic}
-    //       <br></br>
-  
-          
-    //     </div>
-    //     </NavLink>
-    //     )}
-  
-    //   </div>
-            //Ending of the code from the viewForums
 
 
-    <div><p>wertyu {frmId}</p></div>
-    /*<div id="thread" >
+    <div>
+      {cmnt.map((forum) =>
+        <div key={forum.id} className="thread-post">
 
 
-    {frmId.map((forum) =>
+          {forum.data().message}
 
-    <div key={forum.id} className="thread-post">
-   
-      
-      {forum.data().title}
-    
-      <br></br>
-      
-      {forum.data().message}
 
-      <br></br>
-      
+        </div>
+      )}
 
-      {forum.data().topic}
-      <br></br>
+      <form onSubmit={handleSubmit}>
+        <input type='text' id='message' ref={messageRef} placeholder='Message' />
 
-      
+        <button type='submit'>Add Comment</button>
+        {/* <button type='submit'>Add a comment</button>*/}
+
+      </form>
+
     </div>
 
-    )}
 
-  </div>*/
+
   )
 }
 
@@ -153,40 +134,40 @@ export default CommentForum
   </div>
   
     )*/
+
+/* const refreshPage = ()=>{
+   window.location.reload();
+}
+ 
+ return (
+   <div id="thread" >
+ 
+ 
+     {Forum.map((forum) =>
+     <NavLink to={`/comment/${forum.id}`}>
+     <div key={forum.id} className="thread-post">
     
-   /* const refreshPage = ()=>{
-      window.location.reload();
-   }
-  
-    return (
-      <div id="thread" >
-  
-  
-        {Forum.map((forum) =>
-        <NavLink to={`/comment/${forum.id}`}>
-        <div key={forum.id} className="thread-post">
        
-          
-          {forum.data().title}
-        
-          <br></br>
-          
-          {forum.data().message}
-  
-          <br></br>
-          
-  
-          {forum.data().topic}
-          <br></br>
-  
-          
-        </div>
-        </NavLink>
-        )}
-  
-      </div>
-  
-    )
-  
-  
-  }*/
+       {forum.data().title}
+     
+       <br></br>
+       
+       {forum.data().message}
+ 
+       <br></br>
+       
+ 
+       {forum.data().topic}
+       <br></br>
+ 
+       
+     </div>
+     </NavLink>
+     )}
+ 
+   </div>
+ 
+ )
+ 
+ 
+}*/
