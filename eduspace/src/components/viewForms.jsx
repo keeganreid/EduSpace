@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getDocs, onSnapshot, query,collection} from 'firebase/firestore';
 //import '../styles/style.css';
 import { forums } from '../lib/firestore-collections';
+import { NavLink } from 'react-router-dom';
 
 
 export default function Forum() {
@@ -55,14 +56,18 @@ export default function Forum() {
 
   )*/
   
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
   return (
-    <div id="thread">
+    <div id="thread" >
 
 
       {Forum.map((forum) =>
-      <div key={forum.id} className="thread-post" >
-
+      <NavLink to={`/comment/${forum.id}`}>
+      <div key={forum.id} className="thread-post">
+     
         
         {forum.data().title}
       
@@ -71,11 +76,14 @@ export default function Forum() {
         {forum.data().message}
 
         <br></br>
+        
 
         {forum.data().topic}
+        <br></br>
 
         
       </div>
+      </NavLink>
       )}
 
     </div>

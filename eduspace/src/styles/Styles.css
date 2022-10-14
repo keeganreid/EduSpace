@@ -121,6 +121,10 @@
   .thread-post:nth-child(even) {
     background-color: #eee; /* For distinguishing every other post */
   }
+
+  .thread-post:hover{
+    cursor: pointer;
+  }
   
   /* The chat room css*/
   .chat-room-list {
