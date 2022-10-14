@@ -46,6 +46,8 @@ const Login = () => {
         } catch(e) {
             console.log(e)
             setError("Email/Password combination not found.")
+            setLoading(false);
+            return;
         }
 
         setLoading(false);

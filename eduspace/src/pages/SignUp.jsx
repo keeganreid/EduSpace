@@ -55,7 +55,15 @@ const SignUp = () => {
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
         } catch (e) {
-                return setError("Cannot create an account.");
+            console.log(e);
+            if (e.code === "auth/email-already-in-use"){
+                setError("Email/Password combination does not exist")
+            }
+            else{
+                setError("Cannot create an account.");
+            }
+               setLoading(false);
+               return;
             }
             setLoading(false);
             navigate('/');

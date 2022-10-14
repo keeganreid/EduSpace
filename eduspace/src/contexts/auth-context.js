@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, methods} from '../lib/init-firebase';
 import {users} from '../lib/firestore-collections';
 import {setDoc, doc} from 'firebase/firestore';
-import { Navigate, useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext()
 
@@ -16,7 +15,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
     function signup(email, password) {
-        methods.createUserWithEmailAndPassword(auth, email, password).then(cred =>{
+        return methods.createUserWithEmailAndPassword(auth, email, password).then(cred =>{
             if (cred !== undefined){
                 let userType;
             if (email.substring(email.indexOf('@') + 1) === "sun.ac.za"){
@@ -37,7 +36,9 @@ export function AuthProvider({ children }) {
 
     function login(email, password) {
         return methods.signInWithEmailAndPassword(auth, email, password)
-    }
+
+}
+
 
     function logout() {
         return methods.signOut(auth)
