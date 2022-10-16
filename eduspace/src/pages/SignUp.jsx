@@ -8,7 +8,7 @@ const SignUp = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup, currentUser } = useAuth()
+    const { signup, currentUser, updateProfile } = useAuth()
     const navigate = useNavigate()
 
     const [error, setError] = useState("")
@@ -56,17 +56,18 @@ const SignUp = () => {
             await signup(emailRef.current.value, passwordRef.current.value)
         } catch (e) {
             console.log(e);
-            if (e.code === "auth/email-already-in-use"){
+            if (e.code === "auth/email-already-in-use") {
                 setError("Email/Password combination does not exist")
             }
-            else{
+            else {
                 setError("Cannot create an account.");
             }
-               setLoading(false);
-               return;
-            }
             setLoading(false);
-            navigate('/');
+            return;
+        }
+
+        setLoading(false);
+        navigate('/createprofile');
     }
 
     return (
@@ -146,6 +147,9 @@ const SignUp = () => {
                     <br></br>
                     <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
+        <div className='waveContainer'>
+            <div className='wave'></div>
+        </div>
             </section>
         </>
     )

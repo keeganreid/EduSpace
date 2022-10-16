@@ -39,6 +39,10 @@ export function AuthProvider({ children }) {
 
 }
 
+function updateProfile(username ,firstName, surname, bio, faculty, degree){
+    return methods.updateProfile(auth, "Franko Van Noordwyk");
+}
+
 
     function logout() {
         return methods.signOut(auth)
@@ -56,6 +60,7 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         signup,
+        updateProfile,
         login,
         logout
     }

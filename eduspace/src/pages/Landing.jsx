@@ -1,5 +1,5 @@
 import React from 'react'
-import wave from '../images/wave1.svg';
+import wave from '../images/wave.svg';
 import logo from '../images/logo.png';
 import sun from '../images/SUN.png';
 import {NavLink} from 'react-router-dom';

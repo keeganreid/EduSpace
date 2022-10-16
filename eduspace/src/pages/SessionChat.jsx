@@ -1,28 +1,39 @@
 import React, {useRef, useState} from 'react';
 import { useAuth } from '../contexts/auth-context';
-import {collection, serverTimestamp} from 'firebase/firestore';
-import {db} from '../lib/init-firebase';
+import {collection, serverTimestamp, doc, getDoc} from 'firebase/firestore';
 import { query, orderBy, limit, addDoc } from "firebase/firestore";  
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { allSessions } from '../lib/firestore-collections';
+import {useParams} from 'react-router-dom';
+import { useEffect } from 'react';
+import SideBar from '../components/SideBar';
+import Send from '../images/send.png'
 
-
-/*
-import { collectionGroup, query, where, getDocs } from "firebase/firestore";  
-
-const museums = query(collectionGroup(db, 'landmarks'), where('type', '==', 'museum'));
-const querySnapshot = await getDocs(museums);
-querySnapshot.forEach((doc) => {
-    console.log(doc.id, ' => ', doc.data());
-});
-
-*/
 
 function Chat() {
 
+ const [sessionName, setSessionName] = useState([]);
+
+  const getSessionName = async(chatID) =>{
+    const sessionChatRef = doc(allSessions, chatID);
+    const docSnap = await getDoc(sessionChatRef);
+    if (docSnap.exists()) {
+      setSessionName(docSnap.data().module);
+    }
+  }
+
+  let params = useParams();
+
+  useEffect(()=>{
+   getSessionName(params.chatID)
+  }, [params.chatID])
+
     return (
-      <div>
-        <header>
-          <h1>⚛️🔥💬</h1>
+      <div >
+        <SideBar/>
+      <div className='chatContainer'>
+        <header style={{'border': 'solid', 'textAlign': 'center', 'background-color': 'rgba(102, 4, 37, 0.249)', 'border-width': '0' }}>
+          <h1 style={{'font-size': '1.4em'}}>{sessionName}</h1>
         </header>
   
         <section>
@@ -30,13 +41,17 @@ function Chat() {
         </section>
   
       </div>
+      </div>
+      
     );
 }
 
-function ChatRoom() {
+function ChatRoom(chatID) {
     const {currentUser} = useAuth();
     const dummy = useRef();
-    const messagesRef = collection(db, 'sessions', 'G3hUPze6EswGSb2hWrdf', 'messages');
+    let params = useParams();
+
+    const messagesRef = collection(allSessions, params.chatID, 'messages');
 
 
     const q = query(messagesRef, orderBy("createdAt", "asc"), limit(25));
@@ -75,9 +90,9 @@ function ChatRoom() {
   
       <form onSubmit={sendMessage}>
   
-        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Message" />
   
-        <button type="submit" disabled={!formValue}>🕊️</button>
+        <button type="submit" disabled={!formValue} style={{'backgroundImage': `url(${Send})`}} className='sendMessageButton'></button>
   
       </form>
     </>)

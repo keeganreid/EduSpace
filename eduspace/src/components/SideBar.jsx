@@ -4,23 +4,8 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SideBarData';
 import { IconContext } from 'react-icons';
+import logo from '../images/logo.png';
 
-
-
-/* function SideBar() {
-  return (
-    <div>
-      <NavLink to='/login'>
-        <h1>Login</h1>
-      </NavLink>
-      <NavLink to='/'>
-        <h1>Home</h1>
-      </NavLink>
-
-    </div>
-  )
-}
-*/
 
 function SideBar() {
   const [sidebar, setSidebar] = useState(false);
@@ -29,10 +14,14 @@ function SideBar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#f2ecec' }}>
         <div className='navbar'>
           <NavLink to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
+          </NavLink>
+          <NavLink to='/'>
+          <img src={logo} alt='logo' style={{'height': '80px', 'width': '100px', 'position':
+           'absolute', 'right': '2em', 'top': '0.2em'}} />
           </NavLink>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

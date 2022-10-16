@@ -104,6 +104,9 @@ const Login = () => {
                 <br></br>
                 <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
+                <div className='waveContainer'>
+            <div className='wave'></div>
+        </div>
             </section>
         </>
     )
