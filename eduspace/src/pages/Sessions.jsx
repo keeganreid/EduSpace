@@ -91,7 +91,7 @@ export default function Sessions() {
       <h1 className='pageHeading'>Tutoring Sessions</h1>
       </motion.div>
       <div className='listItemContainer'>
-          <label style={{'fontSize': '1.2em'}}>{error}</label>
+          <label style={{'fontSize': '1.2em', 'margin-left': '35%'}}>{error}</label>
         {sessions.map((session) => (
           <NavLink to={`/chat/${session.id}`} style={{'textDecoration': 'none', 'color': 'black'}} key={session.id}>
           <motion.div  className='listItemToSelect'

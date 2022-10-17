@@ -93,7 +93,8 @@
   justify-content: center;
   width: fit-content;
   border-radius: 5%;
-  z-index: 2;
+  z-index: 5;
+  position: relative;
 }
 
 .textInput {
@@ -138,6 +139,7 @@
 
 .signIn:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .redText {
@@ -354,8 +356,8 @@
 }
 
 .dot {
-  height: 100px;
-  width: 100px;
+  height: 96px;
+  width: 96px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -366,7 +368,7 @@
   height: 0;
   width:100%;
   position:absolute;
-  bottom:0;
+  bottom: 0vh;
   left:0;
   z-index: -3;
 }
@@ -374,11 +376,12 @@
 .wave {
   background: url(../images/Movingwave.svg) repeat-x; 
   position: absolute;
-  top: -198px;
+  top: -120px;
   width: 6400px;
-  height: 198px;
+  height: 120px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
+  z-index: -3;
 }
 
 .wave:nth-of-type(2) {
@@ -403,4 +406,15 @@
   50% {
     transform: translate3d(0,5px,0);
   }
+}
+
+.profilePicture{
+  float: left;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  
 }

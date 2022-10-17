@@ -8,6 +8,7 @@ import {useParams} from 'react-router-dom';
 import { useEffect } from 'react';
 import SideBar from '../components/SideBar';
 import Send from '../images/send.png'
+import {motion} from 'framer-motion';
 
 
 function Chat() {
@@ -31,6 +32,12 @@ function Chat() {
     return (
       <div >
         <SideBar/>
+        <motion.div
+       animate={{opacity: 1}}
+       initial={{opacity:0}}
+       exit={{opacity:0}}
+       transition={{duration:0.5}}
+       >
       <div className='chatContainer'>
         <header style={{'border': 'solid', 'textAlign': 'center', 'background-color': 'rgba(102, 4, 37, 0.249)', 'border-width': '0' }}>
           <h1 style={{'font-size': '1.4em'}}>{sessionName}</h1>
@@ -41,6 +48,7 @@ function Chat() {
         </section>
   
       </div>
+      </motion.div>
       </div>
       
     );
