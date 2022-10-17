@@ -23,4 +23,11 @@ export const SidebarData = [
     cName: 'nav-text'
   },
 
+  {
+    title: 'Create Session',
+    path: '/createsession',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
+  },
+
 ];
