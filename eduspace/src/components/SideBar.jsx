@@ -6,7 +6,6 @@ import { SidebarData } from './SideBarData';
 import { IconContext } from 'react-icons';
 
 
-
 /* function SideBar() {
   return (
     <div>
@@ -32,8 +31,9 @@ function SideBar() {
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
           <NavLink to='#' className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar} />
+            <FaIcons.FaBars onClick={showSidebar} />    
           </NavLink>
+
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

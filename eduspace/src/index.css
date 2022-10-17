@@ -6,6 +6,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App__header {
+  font-style: oblique;
+  font-size: 3vw;
+  line-height: 1em;
+  font-family: "Copperplate", Fantasy;
+  color: #06070a;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-image: url(https://media.istockphoto.com/photos/colorful-ice-cream-pattern-on-blue-background-picture-id1278990546?b=1&k=6&m=1278990546&s=170667a&w=0&h=Sqyagm9CCKfV9Cuw9gKwmQPx5896NwajOsBZLJKCqoY=);
+  padding: 20px;
+}
+
+.App__body {
+  display: flex;
+}  
+
+.App__bodyHeader {
+  font-family: cursive;
+  font-size: 3vw;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.App__bodyLeft {
+  width: 100%;
+  background-color: rgb(169, 238, 206);
+  color: white;
+}
+.App__bodyRight {
+  width: 100%;
+  color: white;
+  background-color: rgb(243, 125, 125);
+}
+
+.App {
+  text-align: center;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

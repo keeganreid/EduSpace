@@ -1,22 +1,41 @@
-import React, {useContext} from 'react';
-import {CartContext} from './CartContexts';
+import React, { useContext } from 'react';
+import { CartContext } from '../contexts/CartContext';
+
 
 export const Cart = () => {
-  const [cart] = useContext(CartContext);
-  const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
-  console.log(cart);
+
+
+  const [item] = useContext(CartContext);
+  const totalPrice = Math.round(item.reduce((acc, curr) => acc + curr.price, 0));
+  console.log(item);
+
+  const deleteItem = (index) => () =>
+    sessionStorage.setItem((item) => item.filter((_, i) => i !== index));
+
 
   return (
+
+    //   <CartContext.Provider value={[item, setItem]}> 
+    //   {props.children} 
+    // </CartContext.Provider> 
+
     <div>
-      <span className='itemsInCart'>items in cart : {cart.length}</span>
+      <span className='itemsInCart'>items in cart : {item.length}</span>
       <br />
       <span className='totalPayable'>total price : {totalPrice}</span>
-      <br/>
-      {cart.map((item )=> 
-      (<h6 className= 'itemList'>
-        {item.name} - {item.price}
-      </h6>
-      ))}
+
+      <br />
+      {item.map((item, index) => {
+
+        return (
+          <div key={index} className='itemList'>
+
+            {item.name} - {item.price}
+
+            <button onClick={deleteItem(index)}>delete</button>
+          </div>
+        );
+      })}
     </div>
   );
 };

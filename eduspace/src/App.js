@@ -6,8 +6,8 @@ import Pages from "./pages/Pages";
 import { AuthProvider } from './contexts/auth-context';
 import './styles/Styles.css';
 
-
-/* function App() {
+/*
+ function App() {
   return (
     <div className="App">
       <SideBar/>
@@ -15,13 +15,14 @@ import './styles/Styles.css';
     </div>
   );
 }
-
 */
+
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+      <SideBar/>
       <Pages/>
       </AuthProvider>
     </div>

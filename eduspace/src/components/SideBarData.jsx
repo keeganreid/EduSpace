@@ -15,5 +15,12 @@ export const SidebarData = [
     path: '/login',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
-  }
+  },
+  {
+    title: 'Session Booking',
+    path: '/cartindex',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
+  },
+
 ];

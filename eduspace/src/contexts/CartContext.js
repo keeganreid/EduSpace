@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 
-export const CartContext = React.createContext();
+import { database } from '../lib/dataList';
 
-export const CartProvider = (props) => {
-  const [cart, setCart] = useState([]);
-  return (
-    <CartContext.Provider value={[cart, setCart]}>
-      {props.children}
-    </CartContext.Provider>
-  )
+
+export const CartContext = React.createContext(); 
+ 
+export const CartProvider = (props) => { 
+ const [cart, setItem] = React.useState(database); 
+
+  return ( 
+    <CartContext.Provider value={[cart, setItem]}> 
+      {props.children} 
+    </CartContext.Provider> 
+  ) 
 }

@@ -1,11 +1,103 @@
+h1, p {
+  font-family: Lato;
+}
+
+.CartTable{
+  color: rgb(14, 13, 13);
+  border: rgb(7, 7, 7) 1px solid;
+  left:12mm; top:25mm;
+
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 
+.MyCart{
+  margin-left:400mm;
+  position:absolute;
+  left:12mm; top:25mm;
+}
+
+.amountInCart  {
+ margin-left:400mm;
+position:absolute;
+left:2mm; top:30mm;
+} */
+/* 
+.totalPayable {
+margin-left:400mm;
+position:absolute;
+left:2mm; top:35mm; 
+} */
+
+.itemList{
+margin-left:350mm;
+ margin-top: 12mm;
+/*position:relative */
+/* margin-top: 10em; */
+/*position:absolute;
+left:80px; top:45px;*/
+padding:10;
+/* marginHorizontal:100mm; */
+} 
+
+.itemsForSale{
+margin-left:10mm;
+position:absolute;
+left:10mm; top:20mm; 
+}
+
+.addButton{
+position:relative;
+left:10mm; 
+/* top:-1mm; */
+}
+
+.itemPrice{
+position:relative;
+left:-2mm;
+top:11mm;
+}
+
+
 .navbar {
     background-color: #060b26;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
+    z-index: 1;
+    
   }
   
+  .search{
+    position:absolute;
+    left:310mm; top:5mm;
+    margin-left: 15%; 
+
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+  }
+
+  .cartDropdown{
+    position:absolute;
+    left:250mm; top:5mm;
+    float: right;
+    padding: 6px;
+    
+  }
+
+  .cartDropdown:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
   .menu-bars {
     margin-left: 2rem;
     font-size: 2rem;
@@ -22,11 +114,13 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 1;
   }
   
   .nav-menu.active {
     left: 0;
     transition: 350ms;
+    z-index: 1;
   }
   
   .nav-text {
@@ -157,4 +251,8 @@
     width: 20px;
     left: 450px;
     top: 15px;
+  }
+
+  .table{
+    color: black;
   }
