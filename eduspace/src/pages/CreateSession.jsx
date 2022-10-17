@@ -1,20 +1,14 @@
 import React from "react";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function CreateSession(){
+export default function CreateSession() {
 
 
-    return(
-    <div>
-        <h1>Create your own study session</h1>
-        <NavLink to='#' className='menu-bars'>
-                Schedule a meeting
-        </NavLink>
+    return (
+        <div>
 
-        <NavLink to='#' className='menu-bars'>
-                Schedule an online meeting
-        </NavLink>
-        
-    </div>
+            <div className="heading"> <h1>Create your own study session</h1></div>
+            <div className="OwnSession"></div>
+        </div>
     )
 } 
