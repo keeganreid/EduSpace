@@ -1,10 +1,7 @@
 import { getFirestore } from 'firebase/firestore';
-//import { initializeApp } from "firebase/app";
-//import { getAuth, initializeAuth } from "firebase/auth";
-
 import { initializeApp } from 'firebase/app'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
+import {getStorage} from 'firebase/storage';
 
 
 const app = initializeApp({
@@ -26,9 +23,12 @@ export const db = getFirestore(app);
 export const methods = {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
   onAuthStateChanged,
   signOut
 }
+
+export const storage = getStorage(app);
 
 export default app;
 

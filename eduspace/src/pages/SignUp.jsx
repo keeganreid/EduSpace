@@ -8,7 +8,7 @@ const SignUp = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup, currentUser } = useAuth()
+    const { signup, currentUser, updateProfile } = useAuth()
     const navigate = useNavigate()
 
     const [error, setError] = useState("")
@@ -55,13 +55,19 @@ const SignUp = () => {
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
         } catch (e) {
-            if (e.message === "auth/email-already-exists")
-                console.log(e)
-
-            return setError("Failed to create an account.")
+            console.log(e);
+            if (e.code === "auth/email-already-in-use") {
+                setError("Email/Password combination does not exist")
+            }
+            else {
+                setError("Cannot create an account.");
+            }
+            setLoading(false);
+            return;
         }
-        setLoading(false)
-        navigate("/")
+
+        setLoading(false);
+        navigate('/createprofile');
     }
 
     return (
@@ -125,8 +131,8 @@ const SignUp = () => {
                                 id="confirm_pwd"
                             />
                             <img
-                                title={isRevealPwd ? "Hide password" : "Show password"}
-                                src={isRevealPwd ? hidePwdImg : showPwdImg}
+                                title={isRevealCPwd ? "Hide password" : "Show password"}
+                                src={isRevealCPwd ? hidePwdImg : showPwdImg}
                                 onClick={() => setIsRevealCPwd(prevState => !prevState)}
                                 alt="Hide/Show Password Eye"
                             />
@@ -141,6 +147,9 @@ const SignUp = () => {
                     <br></br>
                     <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
+        <div className='waveContainer'>
+            <div className='wave'></div>
+        </div>
             </section>
         </>
     )

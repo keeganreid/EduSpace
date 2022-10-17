@@ -43,13 +43,15 @@ const Login = () => {
             setError("")
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            navigate("/")
         } catch(e) {
             console.log(e)
             setError("Email/Password combination not found.")
+            setLoading(false);
+            return;
         }
 
-        setLoading(false)
+        setLoading(false);
+        navigate("/");
     }
 
     return (
@@ -102,6 +104,9 @@ const Login = () => {
                 <br></br>
                 <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
+                <div className='waveContainer'>
+            <div className='wave'></div>
+        </div>
             </section>
         </>
     )
