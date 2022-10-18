@@ -26,6 +26,8 @@ import {withRouter,Link} from 'react-router-dom';
       const topic = topicRef.current.value;
 
       addDoc(forums, {title, message, topic});
+         // 👇️ clear all input values in the form
+    e.target.reset();
       //window.location.reload();
     //  return addDoc();
       
@@ -51,7 +53,7 @@ import {withRouter,Link} from 'react-router-dom';
   
 
   return (
-    <div>
+    <div >
      
         <form onSubmit={handleSubmit}>
             <input type='text' id='title' ref={titleRef} placeholder='Title'/>

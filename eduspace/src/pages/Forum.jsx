@@ -8,7 +8,7 @@ export default function Forum() {
   
 
   return (
-    <div>
+    <div className='b'>
       
       <ViewForms/>
       <AddForum/>

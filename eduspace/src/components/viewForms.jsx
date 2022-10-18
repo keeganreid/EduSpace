@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { getDocs, onSnapshot, query,collection} from 'firebase/firestore';
+import React, { useEffect, useState,useRef } from 'react';
+import { getDocs, onSnapshot, query,collection, updateDoc, doc, getDoc, FieldValue} from 'firebase/firestore';
 //import '../styles/style.css';
 import { forums } from '../lib/firestore-collections';
 import { NavLink } from 'react-router-dom';
 
 
+
+
 export default function Forum() {
   const [Forum, setForums] = useState([]);
+  const titleRef = useRef();
   const [messages, setMessages] = useState(null);
   const [snapShot, setSnapShot]= useState([]);
 
@@ -16,6 +19,28 @@ export default function Forum() {
     setForums(snapShot.docs.map((doc) => doc ))
     ),[]);
 
+    async function upVote (forumID, countRef){
+      //window.location.reload();
+      //console.log('Poes')
+      //const increment =firebase.firestore.FieldValue.increment(1);
+      let data = {
+        count: countRef + 1
+      }
+      updateDoc(doc(forums, forumID), data);
+    
+    
+    }
+    async function downVote (forumID, countRef){
+      //window.location.reload();
+      //console.log('Poes')
+      //const increment =firebase.firestore.FieldValue.increment(1);
+      let data = {
+        count: countRef  -1
+      }
+      updateDoc(doc(forums, forumID), data);
+    
+    
+    }
 
 
     
@@ -56,21 +81,29 @@ export default function Forum() {
 
   )*/
   
+
+ /*const downVote = ()=>{
+  //window.location.reload();
+  console.log('Poes')
+}*/
+
   const refreshPage = ()=>{
-    window.location.reload();
+    //window.location.reload();
+    console.log('Poes')
  }
 
   return (
-    <div id="thread" >
-
+    <div className='b' id="thread" >
 
       {Forum.map((forum) =>
-      <NavLink to={`/comment/${forum.id}`}>
-      <div key={forum.id} className="thread-post">
+      <div key={forum.id}> 
+        <button onClick={ () => upVote(forum.id, forum.data().count)}>Upvote</button>  <button onClick={ () => downVote(forum.id, forum.data().count)}>downvote</button> <label>{forum.data().count}</label>
+      <NavLink className='a' to={`/comment/${forum.id}`}>
+      <div className="thread-post">
      
-        
+  
         {forum.data().title}
-      
+     
         <br></br>
         
         {forum.data().message}
@@ -84,6 +117,7 @@ export default function Forum() {
         
       </div>
       </NavLink>
+      </div>
       )}
 
     </div>

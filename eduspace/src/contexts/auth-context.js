@@ -15,20 +15,34 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
     function signup(email, password) {
-        methods.createUserWithEmailAndPassword(auth, email, password).then(
-          cred =>{
+        return methods.createUserWithEmailAndPassword(auth, email, password).then(cred =>{
+            if (cred !== undefined){
+                let userType;
+            if (email.substring(email.indexOf('@') + 1) === "sun.ac.za"){
+                userType = "student";
+            }
+            else{
+                userType = "company";
+            }
             let data = {
-                email: cred.user.email
+                email: cred.user.email,
+                type: userType
             };
             return setDoc(doc(users, cred.user.uid), data);
-
-          }
-        )
+            }            
+          }       
+          )
     }
 
     function login(email, password) {
         return methods.signInWithEmailAndPassword(auth, email, password)
-    }
+
+}
+
+function updateProfile(username ,firstName, surname, bio, faculty, degree){
+    return methods.updateProfile(auth, "Franko Van Noordwyk");
+}
+
 
     function logout() {
         return methods.signOut(auth)
@@ -46,6 +60,7 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         signup,
+        updateProfile,
         login,
         logout
     }

@@ -1,180 +1,570 @@
 .navbar {
-    background-color: #800000;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-  
-  .menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-  }
-  
-  .nav-menu {
-    background-color: #800000;
-    width: 250px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    transition: 850ms;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-    transition: 350ms;
-  }
-  
-  .nav-text {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 8px 0px 8px 16px;
-    list-style: none;
-    height: 60px;
-  }
-  
-  .nav-text a {
-    text-decoration: none;
-    color: #f5f5f5;
-    font-size: 18px;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-radius: 4px;
-  }
-  
-  .nav-text a:hover {
-    background-color: #1a83ff;
-  }
-  
-  .nav-menu-items {
-    width: 100%;
-  }
-  
-  .navbar-toggle {
-    background-color: #800000;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
+  background-color: #660425;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
 
-  .button1{
-    background-color: rgb(184, 183, 183);
-    /*position: absolute;*/
-    top:50%;
-    border:none; 
-    border-radius:10px; 
-    padding:15px;
-    min-height:50px; 
-    min-width: 150px;
-    color: #800000;
-    border: none; 
-    font-size:30px;
-  }
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: #f2ecec;
+}
 
-  .button2{
+.nav-menu {
+  background-color: #660425;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  z-index: 2;
+}
 
-    background-color: #800000;
-    top:50%;
-    border:none; 
-    border-radius:10px; 
-    padding:15px;
-    min-height:50px; 
-    min-width: 150px;
-    color: white;
-    border: none; 
-    font-size:30px;
-  }
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
 
-  .banner3 {
-    /*background-image: url('/eduspace/public/Banner3.jpg'); /* The image used */
-    background-color: #cccccc; /* Used if the image is unavailable */
-    height: 100%; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    /*overflow: hidden;
-    position: fixed;*/
-  }
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
 
-  #centerwrap { 
-    position: relative;
-   top: 0px;
-   left: 50%;
-   right: 50%
-   /*margin-left: -500px; */
-   }   
+.nav-text a {
+  text-decoration: none;
+  color: #f2ecec;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
 
-    .thread-post {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  .thread-post:nth-child(even) {
-    background-color: #eee; /* For distinguishing every other post */
-  }
+.nav-text a:hover {
+  background-color: rgba(174, 96, 123, 0.949);
+}
 
-  .thread-post:hover{
-    cursor: pointer;
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color: #660425;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+
+.pageHeading {
+  font-size: 2.5em;
+  font-weight: 100;
+  color: rgb(102, 4, 37);
+  text-align: center;
+}
+
+.marginPage {
+  display: grid;
+  justify-content: center;
+}
+
+.login-register-back {
+  background-color: rgba(102, 4, 37, 0.249);
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.5em;
+  display: grid;
+  justify-content: center;
+  width: fit-content;
+  border-radius: 5%;
+  z-index: 2;
+}
+
+.textInput {
+  margin: auto;
+  height: 2em;
+  width: 70vh;
+  border-radius: 0.2em;
+  background-color: rgb(242, 236, 236);
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  border: none;
+  outline: none;
+}
+
+.bigButton {
+  margin: auto;
+  height: 2em;
+  width: 70.5vh;
+  border-radius: 0.2em;
+  background-color: rgb(102, 4, 37);
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  border: none;
+  outline: none;
+  color: rgb(242, 236, 236)
+}
+
+.bigButton:hover {
+  cursor: pointer;
+  background-color: rgba(102, 4, 37, 0.862);
+}
+
+.signIn {
+  text-decoration: none;
+  color: rgb(102, 4, 37);
+}
+
+.signIn:visited {
+  text-decoration: none;
+  color: rgb(102, 4, 37);
+}
+
+.signIn:hover {
+  text-decoration: underline;
+}
+
+.redText {
+  color: #660425;
+}
+
+.errorMessage {
+  color: #660425;
+  font-size: 1.3em;
+}
+
+.pwd-container {
+  position: relative;
+  width: 295px;
+}
+
+.pwd-container img {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  left: 490px;
+  top: 15px;
+}
+
+.spacer {
+  aspect-ratio: 1920/1080;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.logoImg {
+  z-index: 1;
+  position: absolute;
+  top: 0%;
+  left: 2%;
+
+}
+
+.landingHeading {
+  z-index: 1;
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  font-size: 3em;
+  color: #ffd042;
+}
+
+.landingBottom {
+  z-index: 1;
+  position: absolute;
+  bottom: 13%;
+  right: 5%;
+}
+
+.landingButton {
+  z-index: 1;
+  width: 8em;
+  height: 2em;
+  background-color: #660425;
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  color: white;
+  border-radius: 3%;
+  border: none;
+}
+
+.landingButton:hover {
+  cursor: pointer;
+  background-color: rgba(102, 4, 37, 0.862);
+}
+
+.landingButton2 {
+  z-index: 1;
+  width: 8em;
+  height: 2em;
+  background-color: #660425;
+  font-size: 1.5em;
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  color: white;
+  border-radius: 3%;
+  border: none;
+}
+
+.landingButton2:hover {
+  cursor: pointer;
+  background-color: rgba(102, 4, 37, 0.862);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  background: rgba(102, 4, 37, 0.249);
+  ;
+  align-self: flex-end;
+  max-width: 75%;
+
+}
+
+.received p {
+  background: #56566096;
+  color: rgb(242, 236, 236);
+  max-width: 75%;
+  border-style: solid;
+  border-color: #56566096;
+  border-width: 0;
+  border-radius: 2px 12px 12px 12px;
+  padding: 0.4em;
+  margin-left: 0.4em;
+}
+
+.messagesent {
+  font-size: 100px;
+}
+
+.listItemContainer {
+  margin-left: 30%;
+  margin-right: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.listItemToSelect {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(102, 4, 37, 0.149);
+  ;
+  background-color: rgba(102, 4, 37, 0.249);
+  padding: 0.3em;
+  z-index: 1;
+  border-radius: 10px;
+
+}
+
+.listItemToSelect:hover {
+  cursor: pointer;
+  background-color: rgba(102, 4, 37, 0.166);
+}
+
+.listItemMainText {
+  font-size: 1.3em;
+}
+
+.listItemMainText:hover {
+  cursor: pointer;
+}
+
+.listItemOtherText {
+  font-size: 1.1em;
+}
+
+.listItemOtherText:hover {
+  cursor: pointer;
+}
+
+.chatContainer {
+  margin-top: 2%;
+  margin-left: 30%;
+  margin-right: 30%;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(102, 4, 37, 0.149);
+}
+
+.sendMessageButton {
+  width: 3em;
+  height: 2em;
+  background-size: contain;
+  background-Repeat: no-repeat;
+  background-Position: center;
+  background-color: #ffd042;
+  border-color: #ffd042b8;
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+.sendMessageButton:hover {
+  background-color: #ffd04292;
+  cursor: pointer;
+}
+
+.bigTextArea {
+  margin: auto;
+  height: 4em;
+  width: 70vh;
+  border-radius: 0.2em;
+  background-color: rgb(242, 236, 236);
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  background-position: center;
+}
+
+.waveContainer { 
+  height: 0;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index: -3;
+}
+
+.wave {
+  background: url(../images/Movingwave.svg) repeat-x; 
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
   }
-  
-  /* The chat room css*/
-  .chat-room-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
+
+
+/*this is some code from franko for his part of css*/
+
+.button1{
+  background-color: rgb(184, 183, 183);
+  /*position: absolute;*/
+  top:50%;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:50px; 
+  min-width: 150px;
+  color: #800000;
+  border: none; 
+  font-size:30px;
+}
+
+.button2{
+
+  background-color: #800000;
+  top:50%;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:50px; 
+  min-width: 150px;
+  color: white;
+  border: none; 
+  font-size:30px;
+}
+
+.banner3 {
+  /*background-image: url('/eduspace/public/Banner3.jpg'); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  /*overflow: hidden;
+  position: fixed;*/
+}
+
+#centerwrap { 
+  position: relative;
+ top: 0px;
+ left: 50%;
+ right: 50%;
+ /*margin-left: -500px; */
+ }   
+
+  .thread-post {
+  padding: 10px;
+  border-bottom: 8px solid rgb(245, 145, 204);
+}
+.thread-post:nth-child(even) {
+  background-color: #eee; /* For distinguishing every other post */
+}
+
+.thread-post:hover{
+  cursor: pointer;
+}
+
+/* The chat room css*/
+.chat-room-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .chat-room-list li {
-    height: 100px;
-    background: var(--color-gray);
-    flex: 1 1 calc(50% - 4px);
-    border-radius: var(--border-radius);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100px;
+  background: var(--color-gray);
+  flex: 1 1 calc(50% - 4px);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .messages-container {
-  width: 100%;
-  padding: 16px;
-  flex-grow: 1;
-  border: 1px solid var(--color-gray);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+width: 100%;
+padding: 16px;
+flex-grow: 1;
+border: 1px solid var(--color-gray);
+border-radius: var(--border-radius);
+overflow: hidden;
+display: flex;
+flex-direction: column;
 }
 
 .message-input-container {
-  display: flex;
-  gap: 4px;
+display: flex;
+gap: 4px;
 }
 
 .message-input {
-  padding: 12px 8px;
-  flex: 1;
-  background: var(--color-gray);
-  border-radius: var(--border-radius);
+padding: 12px 8px;
+flex: 1;
+background: var(--color-gray);
+border-radius: var(--border-radius);
 }
 
 .send-message {
-  padding: 12px 14px;
-  background: var(--color-blue);
-  border-radius: var(--border-radius);
-  cursor: pointer;
+padding: 12px 14px;
+background: var(--color-blue);
+border-radius: var(--border-radius);
+cursor: pointer;
 }
-/*end of the message css*/
-  span {
-    margin-left: 16px;
-  }
 
+.DivToScroll{   
+  background-color: #F5F5F5;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 0 4px 0;
+  color: #3B3C3E;
+  font-size: 12px;
+  font-weight: bold;
+  left: -1px;
+  padding: 10px 7px 5px;
+}
 
+.DivWithScroll{
+  height:120px;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+
+.b{
+  overflow-y: auto;
+  max-height: 900px; /*scroll;*/
+  
+}
+
+.a {
+  color: #660425;
+  position: relative;
+  /*display: inline-block;*/
+  transition: .3s;
+  text-decoration: none;
+ }
+ .a::after,
+ .a::before {
+ position: absolute;
+ left: 0;
+ content: '';
+ width: 100%;
+ height: 1px;
+ background-color: green;
+ opacity: 0;
+ transition: .3s;
+ }
+ .a:hover::before {
+ top: 0;
+ opacity: 2;
+ }
+ .a:hover::after {
+ bottom: 0;
+ opacity: 2;
+ }
+ .a:hover {
+ color: green;
+ }
+
+/*End of Franko's css code*/
