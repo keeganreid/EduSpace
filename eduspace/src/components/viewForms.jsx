@@ -3,7 +3,8 @@ import { getDocs, onSnapshot, query,collection, updateDoc, doc, getDoc, FieldVal
 //import '../styles/style.css';
 import { forums } from '../lib/firestore-collections';
 import { NavLink } from 'react-router-dom';
-
+import up from '../images/up.png'
+import down from '../images/down (1).png'
 
 
 
@@ -97,7 +98,15 @@ export default function Forum() {
 
       {Forum.map((forum) =>
       <div key={forum.id}> 
-        <button onClick={ () => upVote(forum.id, forum.data().count)}>Upvote</button>  <button onClick={ () => downVote(forum.id, forum.data().count)}>downvote</button> <label>{forum.data().count}</label>
+
+      <div style={{'display': 'inline'}}>
+        <img className='myUpButton' src={up} alt="upvote" onClick={ () => upVote(forum.id, forum.data().count)}/>
+        <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t>
+        <img className='myUpButton' src={down} alt="upvote" onClick={ () => downVote(forum.id, forum.data().count)}/>
+        <t></t> <t></t> <t></t> <t></t>
+         <label>{forum.data().count}</label>
+      </div>
+
       <NavLink className='a' to={`/comment/${forum.id}`}>
       <div className="thread-post">
      

@@ -567,4 +567,19 @@ cursor: pointer;
  color: green;
  }
 
+ .myUpButton{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+ }
+
+ /*div.myUpButton input {
+  background: url("../images/up.png") no-repeat;
+  background-size: 90px;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  border: none;
+}*/
+
 /*End of Franko's css code*/

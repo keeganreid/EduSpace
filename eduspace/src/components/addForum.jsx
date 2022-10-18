@@ -24,8 +24,9 @@ import {withRouter,Link} from 'react-router-dom';
       const title = titleRef.current.value;
       const message = messageRef.current.value;
       const topic = topicRef.current.value;
+      const  count = 0;
 
-      addDoc(forums, {title, message, topic});
+      addDoc(forums, {title, message, topic,count});
          // 👇️ clear all input values in the form
     e.target.reset();
       //window.location.reload();
