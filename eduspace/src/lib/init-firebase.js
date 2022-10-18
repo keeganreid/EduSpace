@@ -1,7 +1,7 @@
 import { getFirestore } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
-
+import {getStorage} from 'firebase/storage';
 
 
 const app = initializeApp({
@@ -30,6 +30,8 @@ export const methods = {
  //What I added to be able to write and view the messages 
 
 
+
+export const storage = getStorage(app);
 
 export default app;
 

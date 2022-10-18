@@ -93,7 +93,8 @@
   justify-content: center;
   width: fit-content;
   border-radius: 5%;
-  z-index: 2;
+  z-index: 5;
+  position: relative;
 }
 
 .textInput {
@@ -138,6 +139,7 @@
 
 .signIn:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .redText {
@@ -249,10 +251,14 @@
 .sent p {
   color: white;
   background: rgba(102, 4, 37, 0.249);
-  ;
   align-self: flex-end;
-  max-width: 75%;
-
+  max-width: 100%;
+  border-style: solid;
+  border-color: #56566096;
+  border-width: 0;
+  border-radius: 12px 12px 2px 12px;
+  padding: 0.4em;
+  margin-right: 0.4em;
 }
 
 .received p {
@@ -291,6 +297,14 @@
 
 }
 
+.chatProfilePic{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+}
+
 .listItemToSelect:hover {
   cursor: pointer;
   background-color: rgba(102, 4, 37, 0.166);
@@ -321,23 +335,57 @@
   border-style: solid;
   border-width: 1px;
   border-color: rgba(102, 4, 37, 0.149);
+  height: 80vh;
+}
+
+.messageInput{
+  height: 5vh;
+  width: 75%;
+  margin-left: 2em;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color:#f2ecec;
 }
 
 .sendMessageButton {
-  width: 3em;
-  height: 2em;
+  width: 5em;
+  height: 3em;
   background-size: contain;
   background-Repeat: no-repeat;
   background-Position: center;
-  background-color: #ffd042;
-  border-color: #ffd042b8;
+  background-color: rgba(102, 4, 37, 0.862);
+  border-color: rgba(102, 4, 37, 0.51);
   border-radius: 5px;
   border-width: 2px;
+  float: right;
+  margin-right: 2em;
 }
 
 .sendMessageButton:hover {
   background-color: #ffd04292;
   cursor: pointer;
+}
+
+main {
+  padding: 10px;
+  height: 80vh;
+  margin: 2vh 0 2vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+main::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+main::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: rgba(102, 4, 37, 0.862);
 }
 
 .bigTextArea {
@@ -354,8 +402,8 @@
 }
 
 .dot {
-  height: 100px;
-  width: 100px;
+  height: 96px;
+  width: 96px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -366,7 +414,7 @@
   height: 0;
   width:100%;
   position:absolute;
-  bottom:0;
+  bottom: 0vh;
   left:0;
   z-index: -3;
 }
@@ -374,11 +422,12 @@
 .wave {
   background: url(../images/Movingwave.svg) repeat-x; 
   position: absolute;
-  top: -198px;
+  top: -120px;
   width: 6400px;
-  height: 198px;
+  height: 120px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
+  z-index: -3;
 }
 
 .wave:nth-of-type(2) {
@@ -583,3 +632,36 @@ cursor: pointer;
 }*/
 
 /*End of Franko's css code*/
+.profilePicture{
+  float: left;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  
+}
+
+.editButton{
+  position: absolute;
+  top: 25%;
+  right:10%;
+  background-color: rgba(174, 96, 123, 0.949);
+  border-radius: 3px;
+  width: 10em;
+  height: 3em;
+  color: #f2ecec;
+  border: none;
+}
+
+.editButton:hover{
+  background-color: rgba(203, 139, 163, 0.823);
+  cursor: pointer;
+ 
+}
+
+.profileTabButton{
+  width: 8em;
+  height: 3em;
+}

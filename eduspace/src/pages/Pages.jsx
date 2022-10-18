@@ -15,13 +15,14 @@ import Test from './test';
 import SessionChat from './SessionChat';
 import Sessions from './Sessions';
 import CreateProfile from './CreateProfile';
+import ViewProfile from './ViewProfile';
 //import {Routes, Route, useLocation} from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion';
 
 function Pages() {
   const location = useLocation();
   return (
-    <AnimatePresence wait>
+    <AnimatePresence exitBeforeEnter>
     <Routes location={location} key={location.pathname}>
         <Route exact path='/' element={<Home/>}/>
         <Route exact path='/login' element={<Login/>}/>
@@ -36,6 +37,7 @@ function Pages() {
         <Route exact path='/chat/:chatID' element={<SessionChat/>}/>
         <Route exact path='/sessions' element={<Sessions/>}/>
         <Route exact path='/createprofile' element={<CreateProfile/>}/>
+        <Route exact path='/profile' element={<ViewProfile/>}/>
     </Routes>
     </AnimatePresence>
   )

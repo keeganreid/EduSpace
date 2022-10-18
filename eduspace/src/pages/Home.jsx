@@ -3,6 +3,8 @@ import {NavLink} from 'react-router-dom';
 import '../styles/Styles.css';
 
 function Home() {
+  const { currentUser} = useAuth();
+
   return (
     <div /*id="centerwrap"*/> 
       {/*<img src={process.env.PUBLIC_URL + '/Banner3.jpg'} className='banner3'/>*/}
