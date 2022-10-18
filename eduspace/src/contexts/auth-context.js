@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
 }
 
 async function updateUserProfile(file, usernameRef, fullnameRef, facultyRef, degreeRef, bioRef) {
-    if (file !== undefined){
+    if (file !== null){
     const fileRef = ref(storage, `profilePictures/${file.name}`);
     
     const snapshot = await uploadBytes(fileRef, file);
@@ -50,7 +50,8 @@ async function updateUserProfile(file, usernameRef, fullnameRef, facultyRef, deg
     methods.updateProfile(currentUser, {photoURL, displayName: usernameRef});
 }
 else{
-    methods.updateProfile(currentUser, {displayName: usernameRef});
+  methods.updateProfile(currentUser, {photoURL: 'https://firebasestorage.googleapis.com/v0/b/eduspace-ed18f.appspot.com/o/defaultProfile%2Fuser.png?alt=media&token=1f3735cc-e3d5-4f02-956f-9a46d2c77191'
+  , displayName: usernameRef});
 }
 
     let data = {

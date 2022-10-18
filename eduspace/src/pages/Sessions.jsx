@@ -25,6 +25,7 @@ async function getSessionsData(userId) {
       sessionIDs.push(element.id);
     })
 
+
   // if here, we've got sessions to fetch
 
   // WARNING: The 'in' operator can only handle up to 10 sessions at a time!
@@ -91,7 +92,7 @@ export default function Sessions() {
       <h1 className='pageHeading'>Tutoring Sessions</h1>
       </motion.div>
       <div className='listItemContainer'>
-          <label style={{'fontSize': '1.2em', 'margin-left': '35%'}}>{error}</label>
+          <label style={{'fontSize': '1.2em', 'marginLeft': '35%'}}>{error}</label>
         {sessions.map((session) => (
           <NavLink to={`/chat/${session.id}`} style={{'textDecoration': 'none', 'color': 'black'}} key={session.id}>
           <motion.div  className='listItemToSelect'
