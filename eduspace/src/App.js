@@ -4,6 +4,8 @@ import AddUser from "./components/addUser";
 import SideBar from "./components/SideBar";
 import Pages from "./pages/Pages";
 import { AuthProvider } from './contexts/auth-context';
+import './index.css';
+
 
 
 /* function App() {
