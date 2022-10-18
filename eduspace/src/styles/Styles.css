@@ -381,7 +381,7 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background: #24be24cb;
 }
 
 main::-webkit-scrollbar-thumb {
@@ -581,7 +581,7 @@ cursor: pointer;
 }
 
 .b{
-  overflow-y: auto;
+  
   max-height: 900px; /*scroll;*/
   
 }
@@ -620,6 +620,8 @@ cursor: pointer;
   width: 20px;
   height: 20px;
   cursor: pointer;
+  margin-top: 0.3em;
+  margin-left: 1em;
  }
 
  /*div.myUpButton input {

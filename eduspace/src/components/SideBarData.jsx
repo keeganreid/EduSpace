@@ -6,7 +6,7 @@ import * as IoIcons from 'react-icons/io';
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    path: '/home',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
@@ -23,15 +23,23 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'StartPage',
-    path: '/StartPage',
-    icon: <IoIcons.IoIosAddCircle />,
-  },
-  {
     title: 'Profile',
     path: '/profile',
     icon: <IoIcons.IoMdContact />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Forum',
+    path: '/forum',
+    icon: <IoIcons.IoMdPaper />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Logout',
+    path: '/logout',
+    icon: <IoIcons.IoIosOutlet />,
+    cName: 'nav-text'
   }
+
   
 ];

@@ -94,10 +94,10 @@ export default function Forum() {
  }
 
   return (
-    <div className='b' id="thread" >
+    <main id="thread" >
 
       {Forum.map((forum) =>
-      <div key={forum.id}> 
+      <div key={forum.id} className='a' > 
 
       <div style={{'display': 'inline'}}>
         <img className='myUpButton' src={up} alt="upvote" onClick={ () => upVote(forum.id, forum.data().count)}/>
@@ -107,7 +107,7 @@ export default function Forum() {
          <label>{forum.data().count}</label>
       </div>
 
-      <NavLink className='a' to={`/comment/${forum.id}`}>
+      <NavLink  to={`/comment/${forum.id}`} style={{'textDecoration': 'none', 'color': 'black'}}>
       <div className="thread-post">
      
   
@@ -129,7 +129,7 @@ export default function Forum() {
       </div>
       )}
 
-    </div>
+    </main>
 
   )
 

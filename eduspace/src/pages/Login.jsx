@@ -51,7 +51,7 @@ const Login = () => {
         }
 
         setLoading(false);
-        navigate("/");
+        navigate("/home");
     }
 
     return (
