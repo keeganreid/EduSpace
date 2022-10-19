@@ -45,6 +45,17 @@ export const SidebarData = [
     path: '/Redeem',
     icon: <IoIcons.IoIosOutlet />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Online Resources',
+    path: '/onlineResources',
+    icon: <IoIcons.IoIosApps />,
+    cName: 'nav-text'
+  },
+  {
+  title: 'Create Quiz',
+  path: '/createQuiz',
+  icon: <IoIcons.IoIosBuild />,
+  cName: 'nav-text'
   }
-  
 ];

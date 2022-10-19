@@ -21,6 +21,14 @@ import Logout from './Logout';
 import {AnimatePresence} from 'framer-motion';
 import Redeem from './Redeem';
 
+import Survey from './Survey';
+import FunctionalitySurvey from '../components/FunctionalitySurvey';
+import OnlineResources from './OnlineResources';
+import CreateQuiz from './CreateQuiz';
+
+
+
+
 function Pages() {
   const location = useLocation();
   return (
@@ -42,6 +50,15 @@ function Pages() {
         <Route exact path='/profile' element={<ViewProfile/>}/>
         <Route exact path='/logout' element={<Logout/>}/>
         <Route exact path='/redeem' element={<Redeem/>}/>
+    
+        {/*Isa's code*/}
+        <Route exact path='/survey' element={<Survey/>}/>
+        <Route exact path='/FunctionalitySurvey' element={<FunctionalitySurvey/>}/>
+        <Route exact path='/OnlineResources' element={<OnlineResources/>}/>
+        <Route exact path='/CreateQuiz' element={<CreateQuiz/>}/>
+        {/* end of Isa's code */}
+    
+    
     </Routes>
     </AnimatePresence>
   )
