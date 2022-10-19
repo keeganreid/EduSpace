@@ -16,6 +16,7 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
     const [imageUrl, setImageUrl] = useState(null);
+    const  points = 0;
 
     function signup(email, password) {
         return methods.createUserWithEmailAndPassword(auth, email, password).then(cred =>{
@@ -28,7 +29,8 @@ export function AuthProvider({ children }) {
                 userType = "company";
             }
             let data = {
-                type: userType
+                type: userType,
+                points : 1000
             };
             return setDoc(doc(users, cred.user.uid), data);
             }            

@@ -19,6 +19,7 @@ import ViewProfile from './ViewProfile';
 import Logout from './Logout';
 //import {Routes, Route, useLocation} from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion';
+import Redeem from './Redeem';
 
 function Pages() {
   const location = useLocation();
@@ -40,6 +41,7 @@ function Pages() {
         <Route exact path='/createprofile' element={<CreateProfile/>}/>
         <Route exact path='/profile' element={<ViewProfile/>}/>
         <Route exact path='/logout' element={<Logout/>}/>
+        <Route exact path='/redeem' element={<Redeem/>}/>
     </Routes>
     </AnimatePresence>
   )

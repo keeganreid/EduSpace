@@ -11,6 +11,9 @@ const SignUp = () => {
     const { signup, currentUser, updateProfile } = useAuth()
     const navigate = useNavigate()
 
+    const  points = 0;
+
+
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 

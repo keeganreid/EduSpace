@@ -39,7 +39,12 @@ export const SidebarData = [
     path: '/logout',
     icon: <IoIcons.IoIosOutlet />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Redeem',
+    path: '/Redeem',
+    icon: <IoIcons.IoIosOutlet />,
+    cName: 'nav-text'
   }
-
   
 ];

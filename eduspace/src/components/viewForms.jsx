@@ -101,9 +101,7 @@ export default function Forum() {
 
       <div style={{'display': 'inline'}}>
         <img className='myUpButton' src={up} alt="upvote" onClick={ () => upVote(forum.id, forum.data().count)}/>
-        <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t> <t></t>
         <img className='myUpButton' src={down} alt="upvote" onClick={ () => downVote(forum.id, forum.data().count)}/>
-        <t></t> <t></t> <t></t> <t></t>
          <label>{forum.data().count}</label>
       </div>
 
