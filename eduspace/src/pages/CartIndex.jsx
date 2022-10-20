@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import '../index.css';
-import { DataList } from '../lib/dataList';
+import { cartdb, database, DataList } from '../lib/dataList';
 import { Cart } from '../components/Cart';
-import { CartProvider } from '../contexts/CartContext';
+import { CartContext } from '../contexts/CartContext';
+import Checkout from './Checkout';
 
+import SideBar from '../components/SideBar';
+import { useState } from 'react';
 
-  const CartComponent = () => {
-    return (
-      <CartProvider>
-        <div>
-          <Cart />
-          <DataList />
-        </div>
-      </CartProvider>
-    )
-  }
-   render(<CartComponent />, document.getElementById('root'));
+const CartComponent = () => {
+  const [items, setItems] = useState(cartdb)
   
-   export default CartComponent;
+  return (
+
+
+    <div>
+      <SideBar />
+      <CartContext.Provider value={{items, setItems}} >
+        <Cart />
+        <DataList />
+      </CartContext.Provider>
+    </div>
+
+  )
+}
+//  render(<CartComponent />, document.getElementById('root'));
+export default CartComponent;
