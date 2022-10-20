@@ -483,7 +483,36 @@ main::-webkit-scrollbar-thumb {
  
 }
 
-.profileTabButton{
+.activeTabButton{
   width: 8em;
   height: 3em;
+  background-color: #660425;
+  border-width: 1px;
+  border-color: #6604258d;
+  border-radius: 3px;
+  color:#f2ecec;
+}
+
+.activeTabButton:hover{
+  cursor: pointer;
+  background-color: #660425bb;
+}
+
+.nonActiveTabButton{
+  width: 8em;
+  height: 3em;
+  background-color:#f2ecec;
+  border-width: 1px;
+  border-color: #f2ececae;
+  border-radius: 3px;
+}
+
+.nonActiveTabButton:hover{
+  cursor: pointer;
+  background-color:#f2ececb4;
+}
+
+.profileHeading{
+  font-size: 1.5em;
+  color: #660425bb;
 }
