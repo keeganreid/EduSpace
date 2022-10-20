@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .navbar {
   background-color: #660425;
   height: 80px;
@@ -381,7 +383,7 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background: #24be24cb;
 }
 
 main::-webkit-scrollbar-thumb {
@@ -454,6 +456,202 @@ main::-webkit-scrollbar-thumb {
   }
 }
 
+
+/*this is some code from franko for his part of css*/
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+}
+img {
+  width: 700px;
+  height: 200px;
+  background-color: grey;
+}
+.caption {
+  display: block;
+}
+
+
+.button1{
+  background-color: rgb(184, 183, 183);
+  /*position: absolute;*/
+  top:50%;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:50px; 
+  min-width: 150px;
+  color: #800000;
+  border: none; 
+  font-size:30px;
+  
+}
+
+.button2{
+
+  background-color: #800000;
+  top:50%;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:50px; 
+  min-width: 150px;
+  color: white;
+  border: none; 
+  font-size:30px;
+}
+
+.banner3 {
+  /*background-image: url('/eduspace/public/Banner3.jpg'); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  /*overflow: hidden;
+  position: fixed;*/
+}
+
+#centerwrap { 
+  position: relative;
+ top: 0px;
+ left: 50%;
+ right: 50%;
+ /*margin-left: -500px; */
+ }   
+
+  .thread-post {
+  padding: 10px;
+  border-bottom: 8px solid rgb(245, 145, 204);
+}
+.thread-post:nth-child(even) {
+  background-color: #eee; /* For distinguishing every other post */
+}
+
+.thread-post:hover{
+  cursor: pointer;
+}
+
+/* The chat room css*/
+.chat-room-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.chat-room-list li {
+  height: 100px;
+  background: var(--color-gray);
+  flex: 1 1 calc(50% - 4px);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messages-container {
+width: 100%;
+padding: 16px;
+flex-grow: 1;
+border: 1px solid var(--color-gray);
+border-radius: var(--border-radius);
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+
+.message-input-container {
+display: flex;
+gap: 4px;
+}
+
+.message-input {
+padding: 12px 8px;
+flex: 1;
+background: var(--color-gray);
+border-radius: var(--border-radius);
+}
+
+.send-message {
+padding: 12px 14px;
+background: var(--color-blue);
+border-radius: var(--border-radius);
+cursor: pointer;
+}
+
+.DivToScroll{   
+  background-color: #F5F5F5;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 0 4px 0;
+  color: #3B3C3E;
+  font-size: 12px;
+  font-weight: bold;
+  left: -1px;
+  padding: 10px 7px 5px;
+}
+
+.DivWithScroll{
+  height:120px;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+
+.b{
+  
+  max-height: 900px; /*scroll;*/
+  
+}
+
+.a {
+  color: #660425;
+  position: relative;
+  /*display: inline-block;*/
+  transition: .3s;
+  text-decoration: none;
+ }
+ .a::after,
+ .a::before {
+ position: absolute;
+ left: 0;
+ content: '';
+ width: 100%;
+ height: 1px;
+ background-color: green;
+ opacity: 0;
+ transition: .3s;
+ }
+ .a:hover::before {
+ top: 0;
+ opacity: 2;
+ }
+ .a:hover::after {
+ bottom: 0;
+ opacity: 2;
+ }
+ .a:hover {
+ color: green;
+ }
+
+ .myUpButton{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 0.3em;
+  margin-left: 1em;
+ }
+
+ /*div.myUpButton input {
+  background: url("../images/up.png") no-repeat;
+  background-size: 90px;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  border: none;
+}*/
+
+/*End of Franko's css code*/
 .profilePicture{
   float: left;
   width: 200px;
@@ -516,3 +714,387 @@ main::-webkit-scrollbar-thumb {
   font-size: 1.5em;
   color: #660425bb;
 }
+
+
+
+
+/*Start of Isabelle's css code*/
+.popup-box {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(167, 173, 167, 0.3);
+  z-index: 10;
+}
+ 
+.box {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+  background: rgb(139, 29, 29);
+  z-index: 10;
+}
+ 
+.btn-close {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+  z-index: 10;
+}
+
+
+/* .calendarStyles {
+  position: absolute;
+  float: left;
+  margin: 1%;
+  width: 60%;
+  height: 50%;
+  z-index: 0;
+} */
+
+/* home page styling */
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas:
+    "a a a a a b b b"
+    "a a a a a b b b"
+    "a a a a a d d d"
+    "a a a a a d d d";
+  align-items: start;
+}
+.home1 {
+  grid-area: a;
+  z-index: 0;
+  margin: 1.5%;
+}
+.home2 {
+  grid-area: b;
+  margin: 1.5%;
+}
+.home3 {
+  grid-area: d;
+  z-index: 0;
+  margin: 1.5%;
+}
+
+/* Survey styling */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas:
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "c c c c d d d d"
+    "e e e e f f f f"
+    "e e e e f f f f"
+    "g g g g h h h h"
+    "g g g g h h h h"
+    "i i i i j j j j"
+    "i i i i j j j j"
+    "k k k k l l l l"
+    "k k k k l l l l"
+    "m m m m n n n n"
+    "m m m m n n n n";
+  align-items: start;
+  {/*background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg");*/}
+}
+
+
+.firstitem {
+  grid-area: a;
+  margin: 1.5% 1.5%;
+}
+.item1 {
+  grid-area: c;
+  background-color: #079c20;
+  border: 40px solid #079c20;
+  border-radius: 1rem;
+  margin: 1.5% 1.5%;
+  /* border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; */
+}
+.item2 {
+  grid-area: d;
+  margin: 1.5% 1.5%;
+  background-color: #00A4BD;
+  border: 40px solid #00A4BD;
+  border-radius: 1rem;
+}
+.item3 {
+  grid-area: e;
+  margin: 1.5% 1.5%;
+  background-color: #f06e17;
+  border: 40px solid #f06e17;
+  border-radius: 1rem;
+}
+.item4 {
+  grid-area: f;
+  margin: 1.5%;
+  background-color: #f06e17;
+  border: 40px solid #f06e17;
+  border-radius: 1rem;
+}
+.item5 {
+  grid-area: g;
+  margin: 1.5%;
+  background-color: #d3c613;
+  border: 40px solid #d3c613;
+  border-radius: 1rem;
+}
+.item6 {
+  grid-area: h;
+  margin: 1.5%;
+  background-color: #e00000;
+  border: 40px solid #e00000;
+  border-radius: 1rem;
+}
+.item7 {
+  grid-area: i;
+  margin: 1.5%;
+  background-color: #0db994;
+  border: 40px solid #0db994;
+  border-radius: 1rem;
+}
+.item8 {
+  grid-area: j;
+  margin: 1.5%;
+  background-color: #b80229;
+  border: 40px solid #b80229;
+  border-radius: 1rem;
+}
+.item9 {
+  grid-area: k;
+  margin: 1.5%;
+  background-color: #a7009e;
+  border: 40px solid #a7009e;
+  border-radius: 1rem;
+}
+.item10 {
+  grid-area: l;
+  margin: 1.5%;
+  background-color: #f04e69;
+  border: 40px solid #f04e69;
+  border-radius: 1rem;
+}
+
+.item1:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item2:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item3:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item4:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item5:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item6:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item7:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item8:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item9:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+.item10:hover {
+  opacity: 0.7;
+  transform: scale(1.02);
+}
+
+/* styling the button */
+.click {
+  border-radius: 2rem;
+}
+.click:hover {
+  opacity: 0.3;
+}
+
+/* functionality survey styles */
+.functionalitySurvey {
+  font-family: sans-serif;
+}
+.functionalitySurvey h1 {
+  text-align: center;
+}
+.functionalitySurvey h2 {
+  text-align: center;
+}
+
+/* OnlineResources style */
+.wrapper3 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas:
+    "a a a a a b b b"
+    "a a a a a b b b"
+    "c c c c d d d d"
+    "e e e e f f f f"
+    "g g g g h h h h"
+    "i i i i j j j j"
+    "k k k k l l l l"
+    "k k k k l l l l"
+    "m m m m n n n n"
+    "m m m m n n n n";
+  align-items: start;
+  {/*background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg");*/}
+}
+.header {
+  grid-area: a;
+}
+.videos {
+  grid-area: c;
+  margin: 1.5%;
+}
+.podcasts {
+  grid-area: d;
+  margin: 1.5%
+}
+.link1 {
+  grid-area: e;
+  margin: 1.5%
+}
+.link2 {
+  grid-area: g;
+  margin: 1.5%
+}
+.link3 {
+  grid-area: i;
+  margin: 1.5%
+}
+.link4 {
+  grid-area: f;
+  margin: 1.5%
+}
+.link5 {
+  grid-area: h;
+  margin: 1.5%
+}
+.link6 {
+  grid-area: j;
+  margin: 1.5%
+}
+/* button styling */
+.but1 {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.but1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.but1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.but1:hover span {
+  padding-right: 25px;
+}
+
+.but1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* header styling */
+header h1 {
+  font-size: 50px;
+  font-weight: 600;
+  margin: 20px;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Create Quiz Styling */
+.wrapper4 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas:
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "e e e e f f f f"
+    "g g g g h h h h"
+    "i i i i j j j j"
+    "k k k k l l l l"
+    "k k k k l l l l"
+    "m m m m n n n n"
+    "m m m m n n n n";
+  align-items: start;
+  /* background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg"); */
+}
+
+.hele {
+  grid-area: b;
+}
+
+
+
+
+
+
+/*Eding of Isa's css code wish me luck*/
