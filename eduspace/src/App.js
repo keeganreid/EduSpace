@@ -7,8 +7,8 @@ import { AuthProvider } from './contexts/auth-context';
 import './index.css';
 
 
-
-/* function App() {
+/*
+ function App() {
   return (
     <div className="App">
       <SideBar/>
@@ -17,13 +17,14 @@ import './index.css';
 //<!--kcghcjgcjhcjh-->
   );
 }
-
 */
+
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+      <SideBar/>
       <Pages/>
       </AuthProvider>
     </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
+import CreateSession from './CreateSession';
+import CartComponent from '../pages/CartIndex';
 import {Routes, Route,useLocation} from 'react-router-dom';
 import Profile from './Profile';
 import Forum from './Forum';
@@ -16,6 +18,7 @@ import SessionChat from './SessionChat';
 import Sessions from './Sessions';
 import CreateProfile from './CreateProfile';
 import ViewProfile from './ViewProfile';
+import PaymentSuccesful from './PaymentSuccesful';
 import Logout from './Logout';
 //import {Routes, Route, useLocation} from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion';
@@ -29,6 +32,8 @@ import CreateQuiz from './CreateQuiz';
 
 
 
+
+
 function Pages() {
   const location = useLocation();
   return (
@@ -37,6 +42,8 @@ function Pages() {
         <Route exact path='/home' element={<Home/>}/>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/signup' element={<SignUp/>}/>
+        <Route exact path='/marketplace' element={<CartComponent/>}/>
+        <Route exact path='/createsession' element={<CreateSession/>}/>
         <Route exact path='/profile' element={<Profile/>}/>
         <Route exact path='/forum' element={<Forum/>}/>
         <Route exact path='/chat' element={<ChatRoom/>}/>
@@ -48,6 +55,7 @@ function Pages() {
         <Route exact path='/sessions' element={<Sessions/>}/>
         <Route exact path='/createprofile' element={<CreateProfile/>}/>
         <Route exact path='/profile' element={<ViewProfile/>}/>
+        <Route exact path='/payment/:success' element={<PaymentSuccesful/>}/>
         <Route exact path='/logout' element={<Logout/>}/>
         <Route exact path='/redeem' element={<Redeem/>}/>
     

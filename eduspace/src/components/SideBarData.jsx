@@ -57,5 +57,19 @@ export const SidebarData = [
   path: '/createQuiz',
   icon: <IoIcons.IoIosBuild />,
   cName: 'nav-text'
-  }
+  },
+  {
+    title: 'Session Booking',
+    path: '/marketplace',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
+  },
+
+  {
+    title: 'Create Session',
+    path: '/createsession',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
+  },
+
 ];
