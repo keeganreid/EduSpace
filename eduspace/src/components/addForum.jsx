@@ -61,7 +61,7 @@ import {withRouter,Link} from 'react-router-dom';
             <input type='text' id='message' ref={messageRef} placeholder='Message'/>
             <input type='text' id='topic' ref={topicRef} placeholder='Topic'/>
 
-            <button type = 'submit'>Add forum</button>
+            <button type = 'submit'>Add forum!</button>
            {/* <button type='submit'>Add a comment</button>*/}
 
         </form>
