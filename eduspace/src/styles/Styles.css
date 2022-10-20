@@ -535,11 +535,11 @@ div.item {
   text-align: center;
   width: 120px;
 }
-img {
+/*img {
   width: 700px;
   height: 200px;
   background-color: grey;
-}
+}*/
 .caption {
   display: block;
 }

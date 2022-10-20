@@ -44,7 +44,7 @@ function Pages() {
         <Route exact path='/signup' element={<SignUp/>}/>
         <Route exact path='/marketplace' element={<CartComponent/>}/>
         <Route exact path='/createsession' element={<CreateSession/>}/>
-        <Route exact path='/profile' element={<Profile/>}/>
+        <Route exact path='/profile' element={<ViewProfile/>}/>
         <Route exact path='/forum' element={<Forum/>}/>
         <Route exact path='/chat' element={<ChatRoom/>}/>
         <Route exact path='/comment/:frmID' element={<CommentForum/>}/>
