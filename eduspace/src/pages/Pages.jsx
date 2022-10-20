@@ -9,6 +9,7 @@ import SessionChat from './SessionChat';
 import Sessions from './Sessions';
 import CreateProfile from './CreateProfile';
 import ViewProfile from './ViewProfile';
+import EditProfile from './EditProfile';
 import {Routes, Route, useLocation} from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion';
 
@@ -17,16 +18,17 @@ function Pages() {
   return (
     <AnimatePresence exitBeforeEnter>
     <Routes location={location} key={location.pathname}>
-        <Route exact path='/' element={<Home/>}/>
+        <Route exact path='/home' element={<Home/>}/>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/signup' element={<SignUp/>}/>
-        <Route exact path='/landing' element={<Landing/>}/>
+        <Route exact path='/' element={<Landing/>}/>
         <Route exact path='/checkout' element={<Checkout/>}/>
         <Route exact path='/test' element={<Test/>}/>
         <Route exact path='/chat/:chatID' element={<SessionChat/>}/>
         <Route exact path='/sessions' element={<Sessions/>}/>
         <Route exact path='/createprofile' element={<CreateProfile/>}/>
         <Route exact path='/profile' element={<ViewProfile/>}/>
+        <Route exact path='/editprofile' element={<EditProfile/>}/>
     </Routes>
     </AnimatePresence>
   )
