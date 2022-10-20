@@ -18,7 +18,7 @@ export const SidebarData = [
   },
   {
     title: 'Session Booking',
-    path: '/cartindex',
+    path: '/marketplace',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },

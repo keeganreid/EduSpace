@@ -5,6 +5,8 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SideBarData';
 import { IconContext } from 'react-icons';
 import logo from '../images/logo.png';
+import { useContext } from 'react';
+import { CartContext } from '../contexts/CartContext';
 
 
 /* function SideBar() {
@@ -24,11 +26,13 @@ import logo from '../images/logo.png';
 
 function SideBar() {
   const [sidebar, setSidebar] = useState(false);
+  const msg = useContext(CartContext)
 
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
+    <div>
+
       <IconContext.Provider value={{ color: '#f2ecec' }}>
         <div className='navbar'>
           <NavLink to='#' className='menu-bars'>
@@ -60,7 +64,7 @@ function SideBar() {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </div>
   );
 }
 
