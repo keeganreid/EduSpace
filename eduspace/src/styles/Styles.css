@@ -794,7 +794,7 @@ cursor: pointer;
     "m m m m n n n n"
     "m m m m n n n n";
   align-items: start;
-  {/*background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg");*/}
+  /*background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg");*/
 }
 
 
@@ -952,7 +952,7 @@ cursor: pointer;
     "m m m m n n n n"
     "m m m m n n n n";
   align-items: start;
-  {/*background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg");*/}
+  /*background-image: url("C:\Users\IsabelleHeylisabelle\OneDrive\Laptop\Documents\BInf Honours Semester 1\Development Project\RooiPlein.jpg");*/
 }
 .header {
   grid-area: a;

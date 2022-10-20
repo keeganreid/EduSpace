@@ -18,7 +18,7 @@ function Home() {
   }
 
   return <div>
-
+      <SideBar/>
     <div className='wrapper2'>
     {/* Calendar */}
     <div className='home1'>
