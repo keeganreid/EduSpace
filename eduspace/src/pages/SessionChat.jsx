@@ -38,7 +38,7 @@ function Chat() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='chatContainer'>
+        <div className='chatContainer' style={{'height': '83vh'}}>
           <header style={{ 'border': 'solid', 'textAlign': 'center', 'backgroundColor': 'rgba(102, 4, 37, 0.249)', 'borderWidth': '0' }}>
             <h1 style={{ 'fontSize': '1.4em' }}>{sessionName}</h1>
           </header>

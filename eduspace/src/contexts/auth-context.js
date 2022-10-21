@@ -1,3 +1,4 @@
+//The authentication where a user is added is placed here
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, methods} from '../lib/init-firebase';
 import {users} from '../lib/firestore-collections';
@@ -5,30 +6,31 @@ import {setDoc, doc, updateDoc} from 'firebase/firestore';
 import { storage } from '../lib/init-firebase';
 import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 
-const AuthContext = createContext()
+const AuthContext = createContext()   // create context allows us to use this page's functionality over any page where it is called 
 
 export function useAuth() {
-    return useContext(AuthContext)
+    return useContext(AuthContext)  //this use Auth function is how we gain access to the context
 }
 
 export function AuthProvider({ children }) {
 
-    const [currentUser, setCurrentUser] = useState();
+    const [currentUser, setCurrentUser] = useState();  //managing the user
     const [loading, setLoading] = useState(true);
-    const [imageUrl, setImageUrl] = useState(null);
 
+    //this function calls the create user firebase function and then uses the created document id 
     function signup(email, password) {
         return methods.createUserWithEmailAndPassword(auth, email, password).then(cred =>{
             if (cred !== undefined){
                 let userType;
-            if (email.substring(email.indexOf('@') + 1) === "sun.ac.za"){
+            if (email.substring(email.indexOf('@') + 1) === "sun.ac.za"){       //where it must be a student email
                 userType = "student";
             }
             else{
-                userType = "company";
+                userType = "company";       //default to company type if not a student
             }
             let data = {
-                type: userType
+                type: userType,
+                points : 500
             };
             return setDoc(doc(users, cred.user.uid), data);
             }            
@@ -40,7 +42,7 @@ export function AuthProvider({ children }) {
         return methods.signInWithEmailAndPassword(auth, email, password)
 }
 
-async function updateUserProfile(file, usernameRef, companyNameRef, companyURLRef, fullnameRef, facultyRef, degreeRef, bioRef) {
+async function updateUserProfile(type, file, usernameRef, companyNameRef, companyURLRef, fullnameRef, facultyRef, degreeRef, bioRef) {
     if (file !== null){
 
         let photoURL;
@@ -57,11 +59,12 @@ async function updateUserProfile(file, usernameRef, companyNameRef, companyURLRe
    await methods.updateProfile(currentUser, {photoURL, displayName: usernameRef.current.value});
 }
 else{
- await methods.updateProfile(currentUser, {photoURL: 'https://firebasestorage.googleapis.com/v0/b/eduspace-ed18f.appspot.com/o/defaultProfile%2Fuser.png?alt=media&token=1f3735cc-e3d5-4f02-956f-9a46d2c77191'
+ await methods.updateProfile(currentUser, {photoURL: 'https://firebasestorage.googleapis.com/v0/b/eduspace-ed18f.appspot.com/o/defaultProfile%2Fuser.png?alt=media&token=1f3735cc-e3d5-4f02-956f-9a46d2c77191'  //getting the photo to upload
   , displayName: usernameRef.current.value});
 }
 let data;
-if (currentUser.userType === 'student'){
+
+if (type === 'student'){
     data = {
         username: currentUser.displayName,
         fullname: fullnameRef.current.value,
@@ -70,7 +73,8 @@ if (currentUser.userType === 'student'){
         bio: bioRef.current.value
     }
 }
-else{
+else
+{
     data = {
         username: currentUser.displayName,
         companyName: companyNameRef.current.value,

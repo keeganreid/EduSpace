@@ -1,3 +1,4 @@
+//Shows the sessions you have before entering it to go to a chat
 import React, { useState, useEffect } from 'react'
 import { users, allSessions } from '../lib/firestore-collections';
 import { query, where, getDocs, collection} from "firebase/firestore";

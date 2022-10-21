@@ -1,3 +1,4 @@
+//Where you can view your profile and edit a few stuff
 import React, { useState, useEffect } from 'react'
 import { users } from '../lib/firestore-collections';
 import { getDoc, doc } from 'firebase/firestore';
@@ -33,7 +34,7 @@ function ViewProfile() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}>
             <div >
-                <SideBar></SideBar>
+                <SideBar/>
                 <img src={wave} alt="wave" style={{ 'overflow': 'hidden', 'width': '100vw' }} />
                 <img src={currentUser.photoURL} alt="Profile" className='profilePicture' style={{ 'backgroundColor': '#bbb' }} />
                 {user.type === "company" && (
@@ -72,7 +73,7 @@ function ViewProfile() {
 
                 {activeTab === "About" && (
                     <div>
-                        <label style={{ 'position': 'absolute', 'top': '55%', 'left': '10%' }} className='profileHeading'>About me</label>
+                        <label style={{ 'position': 'absolute', 'top': '55%', 'left': '10%' }} className='profileHeading'>About</label>
                         <p style={{ 'position': 'absolute', 'top': '60%', 'left': '10%', 'fontSize': '1.1em' }}> {user.bio}</p>
                     </div>
                 )}

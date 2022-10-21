@@ -1,3 +1,4 @@
+//The page where you sign up if you are not a registered user
 import React, { useRef, useState, useEffect } from 'react';
 import { useAuth } from '../contexts/auth-context';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -10,6 +11,9 @@ const SignUp = () => {
     const passwordConfirmRef = useRef()
     const { signup, currentUser, updateProfile } = useAuth()
     const navigate = useNavigate()
+
+    const  points = 0;
+
 
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
@@ -57,7 +61,7 @@ const SignUp = () => {
         } catch (e) {
             console.log(e);
             if (e.code === "auth/email-already-in-use") {
-                setError("Email/Password combination does not exist")
+                setError("Email already in use.")
             }
             else {
                 setError("Cannot create an account.");
