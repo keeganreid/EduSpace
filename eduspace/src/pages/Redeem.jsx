@@ -1,9 +1,8 @@
 //Where you can spend points and redeem a voucher
 import SideBar from '../components/SideBar';
 import { users } from '../lib/firestore-collections';
-import React, { useEffect, useState, useRef } from 'react';
-import { forums } from '../lib/firestore-collections';
-import { getDocs, onSnapshot, query, collection, updateDoc, doc, getDoc, FieldValue, addDoc } from 'firebase/firestore';
+import React, { useEffect, useState} from 'react';
+import { getDocs, collection, updateDoc, doc, getDoc, addDoc } from 'firebase/firestore';
 import { useAuth } from '../contexts/auth-context';
 import { async } from '@firebase/util';
 
@@ -23,15 +22,16 @@ function Redeem() {
     const docSnap = await getDoc(userRef);
 
     if (docSnap.exists()) {
-      setUserPoints(docSnap.data().points);
+      setUserPoints(docSnap.data().points); //getting user's points, so they can be checked if the user has enougn to redeem vouchers
     }
   }
 
-  async function getVoucherIDs(userId) { // <-- note switching to argument here
+  //getting the voucer ids that belong to the user
+  async function getVoucherIDs(userId) {
     const qUserVouchers = collection(users, userId, "vouchers");
     const querySnapshot = await getDocs(qUserVouchers);
     return querySnapshot.docs
-      .map(({ id }) => ({ id })); // this shorthand only works for extracting IDs
+      .map(({ id }) => ({ id })); 
   }
 
  
@@ -48,8 +48,7 @@ function Redeem() {
     
   }, [currentUser.uid, vouchersState])
 
-  async function updatePoints(userID, pointsRef) {
-    //const increment =firebase.firestore.FieldValue.increment(1);
+  async function updatePoints(userID, pointsRef) { //if a user clicks a voucher, they will first deduct 120 points if possible
     if (pointsRef >= 120) {
       setError("")
       setUserPoints(pointsRef - 120);
@@ -59,7 +58,7 @@ function Redeem() {
 
       updateDoc(doc(users, userID), data);
       alert("You just redeemed a voucher worth 120 points  ");
-      addVoucher();
+      addVoucher(); //then we can add the voucher to the user's document
     }
     else {
       setError("You have insufficient points.")

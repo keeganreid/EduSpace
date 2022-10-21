@@ -4,17 +4,18 @@ import SideBar from '../components/SideBar';
 
 function OnlineResources() {
 
-    const openInNewTab = url => {
+    const openInNewTab = url => { //open a new tab and thus not overwriting current eduspace tab
         window.open(url, '_blank', 'noopener,noreferrer');
     };
 
+    //providing links to relevant study resources on other websites
   return (
     <div>
         <SideBar/>
     <div className='wrapper3'>
         
         <header>
-            <h1>Online Resources</h1>
+            <h1>Online Resources</h1> 
         </header>
         <div class="videos">
             <h2>Videos</h2>
