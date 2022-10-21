@@ -16,11 +16,11 @@ const CartComponent = () => {
 
 
     <div>
-      <SideBar />
-      <CartContext.Provider value={{items, setItems}} >
-        <Cart />
-        <DataList />
-      </CartContext.Provider>
+      <SideBar />   //The sidebar is declared
+      <CartContext.Provider value={{items, setItems}} > //Contex is called and the default function and will be able to use the function from this page
+        <Cart />    //the cart will be displayed from the components folder
+        <DataList />  //The data willl be displayed on the same page from the componets 
+      </CartContext.Provider> 
     </div>
 
   )
