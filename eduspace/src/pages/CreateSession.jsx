@@ -11,7 +11,7 @@ import { useAuth } from '../contexts/auth-context';
 import CurrencyInput from 'react-currency-input-field';
 
 export default function CreateSession() {
-//under is declared the different opotions for venues to be selected
+//under is declared the different options for venues to be selected
     const venueOptions = [
         {
             name: "Arts and Social Sciences",
