@@ -22,7 +22,7 @@ import CurrencyInput from 'react-currency-input-field';
 
 
 export default function CreateSession() {
-
+//under is declared the different opotions for venues to be selected
     const venueOptions = [
 
         {
@@ -146,7 +146,7 @@ export default function CreateSession() {
 
 
 
-
+//Funtion to be declared to be able to upload an image to the session and it is also stored on the firebase
     function imageUpload(e) {
 
         const reader = new FileReader();
@@ -182,7 +182,7 @@ export default function CreateSession() {
 
 
 
-
+//To be able to selsct a date that is meant to be today or in the future
     function handleDate(e) {
 
         var today = new Date();
@@ -245,7 +245,7 @@ export default function CreateSession() {
 
         }
 
-        let purchasePrice;
+        let purchasePrice;  //declaring the purchase price to purchase from
 
         if (priceRef.current.value === "") {
 
@@ -260,7 +260,7 @@ export default function CreateSession() {
         }
 
 
-        try {
+        try {       //try with a catch for error handeling the adding towasrds the databse
 
             let data = {
 
