@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-// import { render } from 'react-dom';
+import React from 'react';
 import '../index.css';
-import { cartdb, database, DataList } from '../lib/dataList';
+import { cartdb, DataList } from '../lib/dataList';
 import { Cart } from '../components/Cart';
 import { CartContext } from '../contexts/CartContext';
-//import Checkout from './Checkout';
 
 import SideBar from '../components/SideBar';
 import { useState } from 'react';
@@ -25,5 +23,5 @@ const CartComponent = () => {
 
   )
 }
-//  render(<CartComponent />, document.getElementById('root'));
+
 export default CartComponent;

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 
 const SignUp = () => { //references to input fields
-    const fullnameRef = useRef();
+    const fullnameRef = useRef();   
     const companyNameRef = useRef();
     const companyURLRef = useRef();
     const usernameRef = useRef();
@@ -29,17 +29,12 @@ const SignUp = () => { //references to input fields
         const userRef = doc(users, userID);
         const docSnap = await getDoc(userRef);
         if (docSnap.exists()) {
-            setUserType(docSnap.data().type);
+            setUserType(docSnap.data().type); 
         }
     }
 
     useEffect(() => {
-        // if(currentUser.username !== undefined) {
-        //     navigate('/editProfile')
-        // }
         getUserDetails(currentUser.uid)
-
-
     }, [currentUser.uid])
 
 
@@ -49,7 +44,7 @@ const SignUp = () => { //references to input fields
         try {
             setError("");
             setLoading(true);
-            await updateUserProfile(userType, image, usernameRef, companyNameRef,
+            await updateUserProfile(userType, image, usernameRef, companyNameRef,  //call the auth context method to update profile
                 companyURLRef, fullnameRef,
                 facultyRef, degreeRef, bioRef);
         } catch (e) {
@@ -62,7 +57,7 @@ const SignUp = () => { //references to input fields
         navigate('/home');
     }
 
-    function imageUpload(e) {
+    function imageUpload(e) {  //function for setting the state used for the preview image and that which will be uploaded to firebase
         const reader = new FileReader();
 
         reader.onload = () => {
@@ -82,7 +77,7 @@ const SignUp = () => { //references to input fields
             transition={{ duration: 0.5 }}
         >
             <section className='marginPage'>
-                {userType === 'company' && (
+                {userType === 'company' && (  //we get the type earlier to check if the page must be rendered for a company or student
                     <h1 className='pageHeading'>Create a company profile</h1>
                 )}
                 {userType === 'student' && (
@@ -96,6 +91,7 @@ const SignUp = () => { //references to input fields
                         <br></br>
                         <br></br>
                         <label htmlFor='fileUpload' style={{ 'marginLeft': '40%', 'marginRight': '40%' }} className='signIn' >Select Image</label>
+                        {/* input check to make sure file is an image */}
                         <input type='file' accept='image/*' id='fileUpload' onChange={imageUpload} style={{ 'visibility': 'hidden' }} />
                     </div>
                     <form onSubmit={handleSubmit} style={{"textAlign": "left"}} >
@@ -115,7 +111,7 @@ const SignUp = () => { //references to input fields
                         <br></br>
                         <br></br>
 
-                        {userType === 'company' && (
+                        {userType === 'company' && (  //displaying company-specific inputs 
                             <>
                                 <label htmlFor="companyName">
                                     Company name
@@ -152,7 +148,7 @@ const SignUp = () => { //references to input fields
                             </>
                         )}
 
-                        {userType === 'student' && (
+                        {userType === 'student' && ( //displaying student-specific fields
                             <>
                                 <label htmlFor="fullname">
                                     Full name
