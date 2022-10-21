@@ -104,7 +104,7 @@ export default function Forum() {
 }
 
   return (
-    <main id="thread" >
+    <main id="thread" style={{'height': '75vh'}} >
 
       {Forum.map((forum) =>
       <div key={forum.id} className='a' > 

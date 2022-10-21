@@ -96,7 +96,7 @@ import { allSessions, users } from "../lib/firestore-collections";
             <input type='text' id='message' ref={messageRef} placeholder='Message'/>
             <input type='text' id='topic' ref={topicRef} placeholder='Topic'/>
 
-            <button type = 'submit'onClick={() => increaseStointHandler(currentUser.uid, userPoints)}>Add forum!</button>
+            <button className='button-27' type = 'submit'onClick={() => increaseStointHandler(currentUser.uid, userPoints)}>Add forum!</button>
            {/* <button type='submit'>Add a comment</button>*/}
 
         </form>

@@ -4,7 +4,7 @@ import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
 import CreateSession from './CreateSession';
-import CartComponent from '../pages/CartIndex';
+import CartComponent from './CartIndex';
 import {Routes, Route,useLocation} from 'react-router-dom';
 import Forum from './Forum';
 import CommentForum from './CommentForum';
@@ -26,11 +26,10 @@ import Redeem from './Redeem';
 import Survey from './Survey';
 import FunctionalitySurvey from '../components/FunctionalitySurvey';
 import OnlineResources from './OnlineResources';
-import CreateQuiz from './CreateQuiz';
+import Quiz from './Quiz';
+//import Checkout from './Checkout'
 // AddQuestions from './AddQuestions';
 
-
-import Quiz from './Quiz';
 import AddUser from '../components/addUser';
 
 
@@ -62,7 +61,7 @@ function Pages() {
         <Route exact path='/survey' element={<Survey/>}/>
         <Route exact path='/functionalitysurvey' element={<FunctionalitySurvey/>}/>
         <Route exact path='/onlineresources' element={<OnlineResources/>}/>
-        <Route exact path='/createquiz' element={<CreateQuiz/>}/>
+        <Route exact path='/genralquiz' element={<Quiz/>}/>
         {/*<Route exact path='/addquestions' element={<AddQuestions/>}/>*/}
         {/* end of Isa's code */}
     

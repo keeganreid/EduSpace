@@ -4,7 +4,7 @@ import '../index.css';
 import { cartdb, database, DataList } from '../lib/dataList';
 import { Cart } from '../components/Cart';
 import { CartContext } from '../contexts/CartContext';
-import Checkout from './Checkout';
+//import Checkout from './Checkout';
 
 import SideBar from '../components/SideBar';
 import { useState } from 'react';

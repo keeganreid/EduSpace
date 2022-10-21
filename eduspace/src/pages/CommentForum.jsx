@@ -5,6 +5,7 @@ import { forums,users } from '../lib/firestore-collections';
 import { useParams, NavLink } from 'react-router-dom'
 import { async } from '@firebase/util';
 import { useAuth } from '../contexts/auth-context';
+import SideBar from '../components/SideBar';
 
 
 
@@ -126,14 +127,16 @@ function CommentForum() {
 
   return (
 
-
-
+<div>
+<SideBar/>
     <div>
+      
       <label>{Forum.title}</label>
       <br></br>
       <label>{Forum.message}</label>
       <br></br>
       <label>{Forum.topic}</label>
+      <main style={{'height': '70vh'}}>
       {cmnt.map((forum) =>
         <div key={forum.id} className="thread-post">
 
@@ -143,22 +146,26 @@ function CommentForum() {
 
         </div>
       )}
+      </main>
 
       <form onSubmit={handleSubmit}>
-        <input  
-        type='text' 
+        <textarea
         id='message' 
         ref={messageRef} 
-        placeholder='Message' 
+        placeholder='Comment'
+        autoComplete='off'
+        required
+        className='bigTextArea'
 
 
         />
 
-        <button type='submit' onClick={() => increaseStointHandler(currentUser.uid, userPoints)} >Add Comment</button>
+        <button type='submit' style={{'marginLeft': '3em', 'position': 'absolute', 'bottom': '2%'}} className='button-27' onClick={() => increaseStointHandler(currentUser.uid, userPoints)} >Add Comment</button>
         {/* <button type='submit'>Add a comment</button>*/}
 
       </form>
 
+    </div>
     </div>
 
 
