@@ -1,3 +1,4 @@
+//The authentication where a user is added is placed here
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, methods} from '../lib/init-firebase';
 import {users} from '../lib/firestore-collections';
@@ -30,7 +31,7 @@ export function AuthProvider({ children }) {
             }
             let data = {
                 type: userType,
-                points : 1000
+                points : 500
             };
             return setDoc(doc(users, cred.user.uid), data);
             }            
