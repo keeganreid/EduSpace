@@ -7,6 +7,8 @@ import { getDoc, doc } from 'firebase/firestore';
 import { motion } from 'framer-motion';
 
 
+
+
 const SignUp = () => {
     const fullnameRef = useRef();
     const companyNameRef = useRef();
@@ -15,16 +17,13 @@ const SignUp = () => {
     const bioRef = useRef();
     const facultyRef = useRef();
     const degreeRef = useRef();
-
     const [pfp, setPfp] = useState(userIcon);
     const [image, setImage] = useState(null);
     const { currentUser, updateUserProfile } = useAuth()
     const navigate = useNavigate();
     const [userType, setUserType] = useState(null);
-
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
-
     const getUserDetails = async (userID) => {
         const userRef = doc(users, userID);
         const docSnap = await getDoc(userRef);
@@ -32,20 +31,14 @@ const SignUp = () => {
             setUserType(docSnap.data().type);
         }
     }
-
     useEffect(() => {
         // if(currentUser.username !== undefined) {
         //     navigate('/editProfile')
         // }
         getUserDetails(currentUser.uid)
-
-
     }, [currentUser.uid])
-
-
     async function handleSubmit(e) {
         e.preventDefault();
-
         try {
             setError("");
             setLoading(true);
@@ -58,14 +51,11 @@ const SignUp = () => {
             setLoading(false);
             return;
         }
-
         setLoading(false);
         navigate('/home');
     }
-
     function imageUpload(e) {
         const reader = new FileReader();
-
         reader.onload = () => {
             if (reader.readyState === 2) {
                 setPfp(reader.result);
@@ -74,7 +64,6 @@ const SignUp = () => {
         reader.readAsDataURL(e.target.files[0])
         setImage(e.target.files[0]);
     }
-
     return (
         <motion.div
             animate={{ opacity: 1 }}
@@ -89,7 +78,6 @@ const SignUp = () => {
                 {userType === 'student' && (
                     <h1 className='pageHeading'>Create a student profile</h1>
                 )}
-
                 <div className='login-register-back'>
                     <div>
                         <img className='dot' alt='Profile' id='profileImg' style={{ 'marginLeft': '40%', 'marginRight': '40%' }}
@@ -115,13 +103,11 @@ const SignUp = () => {
                         />
                         <br></br>
                         <br></br>
-
                         {userType === 'company' && (
                             <>
                                 <label htmlFor="companyName">
                                     Company name
                                 </label> <span className='redText'>*</span>
-
                                 <br></br>
                                 <input
                                     className='textInput'
@@ -137,7 +123,6 @@ const SignUp = () => {
                                 <label htmlFor="companyURL">
                                     Company website
                                 </label> <span className='redText'>*</span>
-
                                 <br></br>
                                 <input
                                     className='textInput'
@@ -152,13 +137,11 @@ const SignUp = () => {
                                 <br></br>
                             </>
                         )}
-
                         {userType === 'student' && (
                             <>
                                 <label htmlFor="fullname">
                                     Full name
                                 </label> <span className='redText'>*</span>
-
                                 <br></br>
                                 <input
                                     className='textInput'
@@ -201,10 +184,8 @@ const SignUp = () => {
                                 />
                                 <br></br>
                                 <br></br>
-
                             </>
                         )}
-
                         <label htmlFor="bio">
                             About
                         </label><span className='redText'> *</span>
@@ -218,7 +199,7 @@ const SignUp = () => {
                             required
                         />
                         <br></br>
-                        <button disabled={loading} className='bigButton'>Create Profile</button>
+                        <button /*disabled={loading}*/ className='bigButton'>Create Profile</button>
                     </form>
                     <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
@@ -226,12 +207,7 @@ const SignUp = () => {
                     <div className='wave'></div>
                 </div>
             </section>
-
-
-
         </motion.div>
     )
 }
-
-
 export default SignUp;
