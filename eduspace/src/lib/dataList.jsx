@@ -37,7 +37,7 @@ async function getSessions() {
 
 const database = [];
 
-
+//Using CartContext, items and setItems' contexts are used to create const's to update the session later on
 
 export const DataList = () => {
 
@@ -66,7 +66,8 @@ export const DataList = () => {
 
     }, [])
 
-
+//Here the addToCart const receives props in the form of item from the user, and uses 'some'to test whether the comparison between the item's id and the prop's id exists in items
+//if it does the item cannot be added to the cart, if it is not then the components of it is added to 'session', which is passed through setItems; the session is added to the currentState   
 
   const addToCart = (props) => {
 
