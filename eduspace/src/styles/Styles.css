@@ -540,6 +540,7 @@ div.item {
   height: 200px;
   background-color: grey;
 }*/
+
 .caption {
   display: block;
 }
@@ -1752,6 +1753,20 @@ header h1 {
 
 .hele {
   grid-area: b;
+}
+
+.addQuestion {
+  background-color: rgba(102, 4, 37, 0.249);
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.5em;
+  display: grid;
+  justify-content: center;
+  width: fit-content;
+  border-radius: 6%;
+  z-index: 5;
+  position: relative;
 }
 
 

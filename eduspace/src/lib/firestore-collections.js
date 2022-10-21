@@ -11,3 +11,5 @@ export const allSessions = collection(db, 'sessions');
 export const allQuiz = collection(db, 'quiz');
 
 
+
+

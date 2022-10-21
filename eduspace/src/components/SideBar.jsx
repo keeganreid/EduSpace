@@ -38,7 +38,7 @@ function SideBar() {
           <NavLink to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </NavLink>
-          <NavLink to='/'>
+          <NavLink to='/home'>
           <img src={logo} alt='logo' style={{'height': '80px', 'width': '100px', 'position':
            'absolute', 'right': '2em', 'top': '0.2em'}} />
           </NavLink>

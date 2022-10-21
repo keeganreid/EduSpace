@@ -6,21 +6,18 @@ import SignUp from './SignUp';
 import CreateSession from './CreateSession';
 import CartComponent from '../pages/CartIndex';
 import {Routes, Route,useLocation} from 'react-router-dom';
-import Profile from './Profile';
 import Forum from './Forum';
 import CommentForum from './CommentForum';
-import { Chat, ChatRoom } from './ChatRoom';
 //import Schedule from './Schedule';
 //import StartPage from './StartPage';
 import Landing from './Landing';
-import Checkout from './Checkout';
-import Test from './test';
 import SessionChat from './SessionChat';
 import Sessions from './Sessions';
 import CreateProfile from './CreateProfile';
 import ViewProfile from './ViewProfile';
 import PaymentSuccesful from './PaymentSuccesful';
 import Logout from './Logout';
+import AddQuestions from '../components/AddQuestions';
 //import {Routes, Route, useLocation} from 'react-router-dom';
 import EditProfile from './EditProfile';
 import {AnimatePresence} from 'framer-motion';
@@ -33,6 +30,8 @@ import CreateQuiz from './CreateQuiz';
 // AddQuestions from './AddQuestions';
 
 
+import Quiz from './Quiz';
+import AddUser from '../components/addUser';
 
 
 
@@ -49,11 +48,8 @@ function Pages() {
         <Route exact path='/createsession' element={<CreateSession/>}/>
         <Route exact path='/profile' element={<ViewProfile/>}/>
         <Route exact path='/forum' element={<Forum/>}/>
-        <Route exact path='/chat' element={<ChatRoom/>}/>
         <Route exact path='/comment/:frmID' element={<CommentForum/>}/>
         <Route exact path='/' element={<Landing/>}/>
-        <Route exact path='/checkout' element={<Checkout/>}/>
-        <Route exact path='/test' element={<Test/>}/>
         <Route exact path='/chat/:chatID' element={<SessionChat/>}/>
         <Route exact path='/sessions' element={<Sessions/>}/>
         <Route exact path='/createprofile' element={<CreateProfile/>}/>
@@ -72,6 +68,10 @@ function Pages() {
     
     
         <Route exact path='/editprofile' element={<EditProfile/>}/>
+        <Route exact path='/generalquiz' element={<Quiz/>}/>
+        <Route exact path='/logout' element={<Logout/>}/>
+        <Route exact path='/addquestion' element={<AddQuestions/>}/>
+
     </Routes>
     </AnimatePresence>
   )
