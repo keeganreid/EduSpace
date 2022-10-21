@@ -14,13 +14,16 @@ export default function Forum() {
   const [messages, setMessages] = useState(null);
   const [snapShot, setSnapShot]= useState([]);
 
+  //For the only click once
+  const [hasClicked, setHasClicked] = useState(false)
+
   useEffect(
     () =>
      onSnapshot(forums, (snapShot) =>
     setForums(snapShot.docs.map((doc) => doc ))
     ),[]);
 
-    async function upVote (forumID, countRef){
+    async function upVote (forumID, countRef){ //button for the upvote
       //window.location.reload();
       //console.log('Poes')
       //const increment =firebase.firestore.FieldValue.increment(1);
@@ -28,6 +31,7 @@ export default function Forum() {
         count: countRef + 1
       }
       updateDoc(doc(forums, forumID), data);
+      setHasClicked(true)
     
     
     }
@@ -93,6 +97,12 @@ export default function Forum() {
     console.log('Poes')
  }
 
+ const btnClickHandler = () => {
+  
+  setHasClicked(true)
+  
+}
+
   return (
     <main id="thread" >
 
@@ -100,8 +110,8 @@ export default function Forum() {
       <div key={forum.id} className='a' > 
 
       <div style={{'display': 'inline'}}>
-        <img className='myUpButton' src={up} alt="upvote" onClick={ () => upVote(forum.id, forum.data().count)}/>
-        <img className='myUpButton' src={down} alt="upvote" onClick={ () => downVote(forum.id, forum.data().count)}/>
+       <img  className='myUpButton' src={up} alt="upvote" onClick={ () => upVote(forum.id, forum.data().count) }/>
+        <img className='myUpButton' src={down} alt="downvote" onClick={ () => downVote(forum.id, forum.data().count)}/>
          <label>{forum.data().count}</label>
       </div>
 

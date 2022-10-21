@@ -1,3 +1,4 @@
+//Page to make the sidebar
 import React, {useState} from 'react'
 import {NavLink} from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
@@ -5,32 +6,14 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SideBarData';
 import { IconContext } from 'react-icons';
 import logo from '../images/logo.png';
-import { useContext } from 'react';
-import { CartContext } from '../contexts/CartContext';
-
-
-/* function SideBar() {
-  return (
-    <div>
-      <NavLink to='/login'>
-        <h1>Login</h1>
-      </NavLink>
-      <NavLink to='/'>
-        <h1>Home</h1>
-      </NavLink>
 import { useEffect } from 'react';
 import {useAuth} from '../contexts/auth-context';
 import { getDoc, doc } from 'firebase/firestore';
 import {users} from '../lib/firestore-collections';
 
-    </div>
-  )
-}
-*/
 
 function SideBar() {
   const [sidebar, setSidebar] = useState(false);
-  const msg = useContext(CartContext)
   const [userType, setUserType] = useState();
   const {currentUser} = useAuth();
 
@@ -49,14 +32,12 @@ function SideBar() {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <div>
-
+    <>
       <IconContext.Provider value={{ color: '#f2ecec' }}>
         <div className='navbar'>
           <NavLink to='#' className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar} />    
+            <FaIcons.FaBars onClick={showSidebar} />
           </NavLink>
-
           <NavLink to='/'>
           <img src={logo} alt='logo' style={{'height': '80px', 'width': '100px', 'position':
            'absolute', 'right': '2em', 'top': '0.2em'}} />
@@ -86,7 +67,7 @@ function SideBar() {
           </ul>
         </nav>
       </IconContext.Provider>
-    </div>
+    </>
   );
 }
 

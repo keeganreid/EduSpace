@@ -1,3 +1,4 @@
+//Where all the componets are pulled to dispaly the forums forum
 import React from 'react';
 import ViewForms from '../components/viewForms';
 import AddForum from '../components/addForum';

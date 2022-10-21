@@ -5,7 +5,6 @@ import userIcon from '../images/user.png';
 import { users } from '../lib/firestore-collections';
 import { getDoc, doc } from 'firebase/firestore';
 import { motion } from 'framer-motion';
-import Datetime from 'react-date'
 
 
 const SignUp = () => {

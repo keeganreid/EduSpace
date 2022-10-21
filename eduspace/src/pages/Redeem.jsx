@@ -1,4 +1,4 @@
-
+//Where you can spend points and redeem a voucher
 import SideBar from '../components/SideBar';
 import { users } from '../lib/firestore-collections';
 import React, { useEffect, useState,useRef } from 'react';

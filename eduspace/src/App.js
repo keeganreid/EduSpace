@@ -24,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-      <SideBar/>
       <Pages/>
       </AuthProvider>
     </div>

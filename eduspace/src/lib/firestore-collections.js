@@ -8,6 +8,6 @@ export const forums = collection(db, 'forum');
 
 export const allSessions = collection(db, 'sessions');
 
-
+export const allQuiz = collection(db, 'quiz');
 
 

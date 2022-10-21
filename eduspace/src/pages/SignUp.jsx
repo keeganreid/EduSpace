@@ -1,3 +1,4 @@
+//The page where you sign up if you are not a registered user
 import React, { useRef, useState, useEffect } from 'react';
 import { useAuth } from '../contexts/auth-context';
 import { NavLink, useNavigate } from 'react-router-dom';

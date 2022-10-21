@@ -1,3 +1,4 @@
+//Page where you choose to either sign in or register
 import React from 'react'
 import wave from '../images/wave.svg';
 import logo from '../images/logo.png';

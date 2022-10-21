@@ -1,3 +1,4 @@
+//Page where you log in 
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/auth-context'

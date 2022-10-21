@@ -1,4 +1,6 @@
+//Page for online resources where the online resources are dispayed 
 import React from 'react'
+import SideBar from '../components/SideBar';
 
 function OnlineResources() {
 
@@ -7,7 +9,10 @@ function OnlineResources() {
     };
 
   return (
+    <div>
+        <SideBar/>
     <div className='wrapper3'>
+        
         <header>
             <h1>Online Resources</h1>
         </header>
@@ -47,6 +52,7 @@ function OnlineResources() {
                 <span>Hidden Brain</span>
             </button>
         </div>
+    </div>
     </div>
   )
 }

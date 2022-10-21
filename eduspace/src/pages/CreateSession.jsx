@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import SideBar from "../components/SideBar";
-import { setDoc, collection, addDoc, doc } from 'firebase/firestore';
+import { setDoc, collection, addDoc, doc,getDoc, updateDoc } from 'firebase/firestore';
 import { allSessions, users } from "../lib/firestore-collections";
 import { useRef } from "react";
 import books from '../images/books.png';
@@ -35,6 +35,25 @@ export default function CreateSession() {
     const moduleRef = useRef();
     const priceRef = useRef();
 
+    /*the variables etc. for the points*/
+    const [userPoints, setUserPoints] = useState([]);
+
+    const getUserPoints = async(userID) => {
+        const userRef = doc(users, userID);
+        const docSnap = await getDoc(userRef);
+      
+        if (docSnap.exists()){
+            setUserPoints(docSnap.data().points);
+        }
+    }
+    
+    useEffect(() => {
+        getUserPoints(currentUser.uid)
+    }, [currentUser.uid])
+
+    /*Ending of the variables etc.*/
+
+    
     function handleChange() {
         setIsonline(!isOnline)
     }
@@ -75,7 +94,7 @@ export default function CreateSession() {
     }
 
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e,userID, pointsRef) {
         //isOnline state
         // venueState state 
         // move these 2 states into database
@@ -130,7 +149,34 @@ export default function CreateSession() {
         }
 
         setLoading(false);
+        
+        
+       
+
+
+
     }
+         /*adding a function to add a point every time a session is created*/
+
+         async function increaseStointHandler(userID, pointsRef) {
+     
+            /*Adding code for a user to get points */
+      
+            setUserPoints(pointsRef + 5);
+            let data = {
+              points: userPoints + 5
+            }
+            
+            await updateDoc(doc(users, userID), data);
+                alert ("Thank you, your session has been created, and five points have been given to you!")
+        
+          
+          /*done with it*/
+      }
+
+
+
+
     const venuehtml = (
         <div className="venuedropdown">
             <select value={venueState} onChange={handlevenueChange}>
@@ -181,7 +227,7 @@ export default function CreateSession() {
                 <input type='text' ref={moduleRef} required autoComplete="off" placeholder="Module" id="moduleInput" />
                 <br></br>
 
-                <div className="submitbutton"><button disabled={loading} type='submit'>submit session</button></div>
+                <div className="submitbutton"><button disabled={loading} type='submit' onClick={() => increaseStointHandler(currentUser.uid, userPoints)} >submit session</button></div>
             </form>
             <p className="errorMessage" aria-live="assertive">{error}</p>
 

@@ -1,3 +1,4 @@
+//Where each new page is declared to switch to.
 import React from 'react';
 import Home from './Home';
 import Login from './Login';
@@ -29,6 +30,7 @@ import Survey from './Survey';
 import FunctionalitySurvey from '../components/FunctionalitySurvey';
 import OnlineResources from './OnlineResources';
 import CreateQuiz from './CreateQuiz';
+// AddQuestions from './AddQuestions';
 
 
 
@@ -62,9 +64,10 @@ function Pages() {
     
         {/*Isa's code*/}
         <Route exact path='/survey' element={<Survey/>}/>
-        <Route exact path='/FunctionalitySurvey' element={<FunctionalitySurvey/>}/>
-        <Route exact path='/OnlineResources' element={<OnlineResources/>}/>
-        <Route exact path='/CreateQuiz' element={<CreateQuiz/>}/>
+        <Route exact path='/functionalitysurvey' element={<FunctionalitySurvey/>}/>
+        <Route exact path='/onlineresources' element={<OnlineResources/>}/>
+        <Route exact path='/createquiz' element={<CreateQuiz/>}/>
+        {/*<Route exact path='/addquestions' element={<AddQuestions/>}/>*/}
         {/* end of Isa's code */}
     
     
