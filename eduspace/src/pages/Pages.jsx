@@ -51,7 +51,6 @@ function Pages() {
         <Route exact path='/survey' element={<Survey/>}/>
         <Route exact path='/functionalitysurvey' element={<FunctionalitySurvey/>}/>
         <Route exact path='/onlineresources' element={<OnlineResources/>}/>
-        <Route exact path='/genralquiz' element={<Quiz/>}/>
         {/*<Route exact path='/addquestions' element={<AddQuestions/>}/>*/}
         {/* end of Isa's code */}
     

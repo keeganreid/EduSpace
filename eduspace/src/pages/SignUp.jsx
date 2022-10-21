@@ -6,50 +6,43 @@ import showPwdImg from '../images/showPassword.svg';
 import hidePwdImg from '../images/hidePassword.svg';
 
 const SignUp = () => {
-    const emailRef = useRef()
+    const emailRef = useRef()  //input references
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup, currentUser, updateProfile } = useAuth()
+    const { signup} = useAuth()
     const navigate = useNavigate()
-
-    const  points = 0;
-
-
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
-
-    const [isRevealPwd, setIsRevealPwd] = useState(false);
+    const {currentUser} = useAuth();
+    const [isRevealPwd, setIsRevealPwd] = useState(false); //password and confirm password show/hide states
     const [isRevealCPwd, setIsRevealCPwd] = useState(false);
 
 
-    // Stellenbosch email check: emailRef.current.value.substring(emailRef.current.value.indexOf('@') + 1) !== "sun.ac.za"
 
-    const handleKeypress = e => {
-        //it triggers by pressing the enter key
-        if (e.keyCode === 13) {
-            handleSubmit();
-        }
-    };
-
-    /* useEffect(() => {
+     useEffect(() => {  //if user is logged in navigate
         if(currentUser) {
-            navigate('/')
+            if (currentUser.displayName === undefined){ //if they haven't completed their profile then to create profile
+            navigate('/createprofile')
+            }
+            else{
+                navigate('/home'); //otherwise home
+            }
         }
     }, [])
-    */
+    
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailRef.current.value))) {
+        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailRef.current.value))) {  //checking email is valid
             return setError("Please enter a valid email address.");
         }
 
         if (passwordRef.current.value.length < 6) {
-            return setError("Please enter a password of at least 6 characters.");
+            return setError("Please enter a password of at least 6 characters.");  //checking password is atleast 6 chars
         }
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+        if (passwordRef.current.value !== passwordConfirmRef.current.value) { //comparing the password inputs
             return setError("Passwords do not match.");
         }
 
@@ -57,11 +50,11 @@ const SignUp = () => {
         try {
             setError("")
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value) //calling firebase signup function
         } catch (e) {
             console.log(e);
             if (e.code === "auth/email-already-in-use") {
-                setError("Email already in use.")
+                setError("Email already in use.")  //email in use
             }
             else {
                 setError("Cannot create an account.");
@@ -71,12 +64,12 @@ const SignUp = () => {
         }
 
         setLoading(false);
-        navigate('/createprofile');
+        navigate('/createprofile'); //continue the signup process
     }
 
     return (
         <>
-            <section className='marginPage' onKeyDown={handleKeypress}>
+            <section className='marginPage'>
                 <h1 className='pageHeading'>Sign Up</h1>
 
                 <div className='login-register-back'>
@@ -113,7 +106,7 @@ const SignUp = () => {
                                 id="password"
                             />
                             <img
-                                title={isRevealPwd ? "Hide password" : "Show password"}
+                                title={isRevealPwd ? "Hide password" : "Show password"}  //hide/show password eye
                                 src={isRevealPwd ? hidePwdImg : showPwdImg}
                                 onClick={() => setIsRevealPwd(prevState => !prevState)}
                                 alt="Hide/Show Password Eye"
@@ -142,6 +135,7 @@ const SignUp = () => {
                             />
                         </div>
                         <br></br>
+                        {/* button is disabled while loading to prevent users signing up more than once */}
                         <button disabled={loading} className='bigButton'>Sign Up</button>
                     </form>
                     <br></br>

@@ -1,112 +1,58 @@
 import React, { useState } from "react";
-
 import { NavLink } from 'react-router-dom';
-
 import SideBar from "../components/SideBar";
-
 import { setDoc, collection, addDoc, doc } from 'firebase/firestore';
-
 import { allSessions, users } from "../lib/firestore-collections";
-
 import { useRef } from "react";
-
 import books from '../images/books.png';
-
 import { storage } from '../lib/init-firebase';
-
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-
 import { useAuth } from '../contexts/auth-context';
-
 import CurrencyInput from 'react-currency-input-field';
-
 
 export default function CreateSession() {
 //under is declared the different opotions for venues to be selected
     const venueOptions = [
-
         {
-
             name: "Arts and Social Sciences",
-
             value: 1
-
         },
-
         {
-
             name: "Van der Sterr ",
-
-            value: 2
-
+         value: 2
         },
-
         {
-
             name: "Neelsie",
-
             value: 3
-
         },
-
         {
-
             name: "Engineering",
-
             value: 4
-
         },
-
         {
-
             name: "Merrensky Building",
-
             value: 5
-
         },
-
         {
-
             name: "Mathematical Sciences and Industrial Psychology",
-
             value: 6
-
         },
-
         {
-
             name: "First Year Chemistry Building",
-
             value: 7
-
         },
-
         {
-
             name: "Schumann Annex",
-
             value: 8
-
         },
-
         {
-
             name: "Krotoa Building",
-
             value: 9
-
         },
-
         {
-
             name: "JC Smuts",
-
             value: 10
-
-        },
-
-
-
+        }
     ]
 
     const [isOnline, setIsonline] = useState(true);

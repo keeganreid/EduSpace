@@ -278,7 +278,7 @@ function AddQuestions() {
                 <input type='radio' value="3" checked={isRadioSelected("3")} onChange={handleRadioClick} />
                 <label>Answer</label>
               </div>
-              <button type='submit' disabled={loading} className='bigButton' style={{ 'marginRight': '3em' }}>Add</button>
+              <button  disabled={loading} className='bigButton' style={{ 'marginRight': '3em' }}>Add</button>
             </form>
             <p className={"errorMessage"} aria-live="assertive">{error}</p>
           </div>
