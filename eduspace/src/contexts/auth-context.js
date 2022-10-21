@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
             }
             let data = {
                 type: userType,
-                points : 500
+                points : 300        //giving a new user 300 points when they sign up
             };
             return setDoc(doc(users, cred.user.uid), data);
             }            
@@ -71,6 +71,7 @@ if (currentUser.userType === 'student'){
         faculty: facultyRef.current.value,
         degree: degreeRef.current.value,
         bio: bioRef.current.value
+       // points:???
     }
 }
 else{
