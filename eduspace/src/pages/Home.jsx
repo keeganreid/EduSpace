@@ -18,11 +18,14 @@ function Home() {
   }
 
   return <div>
+    <SideBar/>
 
     <div className='wrapper2'>
     {/* Calendar */}
     <div className='home1'>
+      <main>
     <Calendar />
+    </main>
     </div>
 
     {/* Pop up for Stoints*/}

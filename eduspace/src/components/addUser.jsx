@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {addDoc} from 'firebase/firestore';
-import {users} from '../lib/firestore-collections';
+import {allQuiz} from '../lib/firestore-collections';
 
 function AddUser() {
     const [name, setName] = useState('');
@@ -8,14 +8,18 @@ function AddUser() {
 
 function handleSubmit(e){
 e.preventDefault();
-if (name === ''){
-    return;
-}
 
-alert(name);
+ let options = {
+    id: 0,
+    text: "I am a tester question",
+    isCorrect: false
+  }
 
 
-addDoc(users, {name});
+addDoc(allQuiz, {text: "Hello", options});
+
+
+
 
 }
 
