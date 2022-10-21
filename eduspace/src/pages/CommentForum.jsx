@@ -160,7 +160,7 @@ function CommentForum() {
 
         />
 
-        <button type='submit' style={{'marginLeft': '3em', 'position': 'absolute', 'bottom': '2%'}} className='button-27' onClick={() => increaseStointHandler(currentUser.uid, userPoints)} >Add Comment</button>
+        <button type='submit' style={{'marginLeft': '3em', 'position': 'absolute', 'bottom': '2%'}} className='button-27' onClick={() => increaseStointHandler(currentUser.uid, userPoints)} >Add Comment</button> 
         {/* <button type='submit'>Add a comment</button>*/}
 
       </form>
