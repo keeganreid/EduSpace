@@ -5,9 +5,9 @@ import { setDoc, collection, addDoc, doc } from 'firebase/firestore';
 import { users } from '../lib/firestore-collections';
 import md5 from "md5";
 
+//setItems filters items by looking for item(s) in 'items' where the item's id is not the same as the id 
 
 export const Cart = () => {
-
 
   const { items, setItems } = useContext(CartContext);
 
@@ -19,10 +19,11 @@ export const Cart = () => {
 
   }
 
+  //'totalPrice' takes the current total price and adds the added item's price to it(acc). 
   const totalPrice = items.reduce((acc, curr) => acc + curr.price, 0);
 
-  console.log(items)
-
+  
+  //item(s) are mapped over in items, returning the name, price and id of each item within the return.
   const listcart = items.map((item) =>
 
     <li key={item.id}>
@@ -96,18 +97,6 @@ export const Cart = () => {
 
   return (
 
-
-
-
-    //   <CartContext.Provider value={[item, setItem]}>  
-
-    //   {props.children}  
-
-    // </CartContext.Provider>  
-
-
-
-
     <div>
 
       <h1 className='pageHeading' style={{ 'top': '-10', 'font-size': '3em', 'margin-left': '1mm', ' position': 'absolute' }}>Marketplace</h1>
@@ -154,8 +143,6 @@ export const Cart = () => {
 
             <div className="col-lg-6">
 
-              {/* <input className='purchase' name="disable" type="submit" alt="Submit" align="bottom" value="Purchase" style={{'marginLeft': '5em'}}/> */}
-
               <input className='purchase' name="disable" type="submit" alt="Submit" align="bottom" value="Purchase" style={{ 'marginLeft': '5em' }} onClick={addSession} />
 
             </div>
@@ -164,22 +151,13 @@ export const Cart = () => {
 
         </form>
 
-
-
-
-
       </div>
-
-
-
 
       <div className='itemsInCart' style={{ 'margin-left': '-5mm', ' position': 'absolute' }}>
 
         <h3 >Items in cart : {items.length}</h3>
 
       </div>
-
-
 
       <div className='totalPayable' style={{' position': 'absolute', 'marginLeft': '45%', 'marginRight': '40%', 'marginTop': '17em'}}>
 
