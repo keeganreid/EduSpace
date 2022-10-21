@@ -16,21 +16,24 @@ import ViewProfile from './ViewProfile';
 import Logout from './Logout';
 import AddQuestions from '../components/AddQuestions';
 import EditProfile from './EditProfile';
-import {AnimatePresence} from 'framer-motion';
-import Redeem from './Redeem';
-
 import Survey from './Survey';
 import FunctionalitySurvey from '../components/FunctionalitySurvey';
 import OnlineResources from './OnlineResources';
 import Quiz from './Quiz';
+import Redeem from './Redeem';
+import {AnimatePresence} from 'framer-motion';
 
 
-
-function Pages() {
+function Pages() { //this page is used for routing
   const location = useLocation();
   return (
-    <AnimatePresence exitBeforeEnter>
-    <Routes location={location} key={location.pathname}>
+    // the routes are set in this page and this allows us to navigate between "pages"
+    //the animate presence package provides motion to the pages, allowing for a smooth transition when changing pages
+
+    //the pages making use of /: are indicating that they need to be called with a parameter, which has a value we will use to 
+    //query data from firebase
+    <AnimatePresence exitBeforeEnter> 
+    <Routes location={location} key={location.pathname}> 
         <Route exact path='/home' element={<Home/>}/>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/signup' element={<SignUp/>}/>
@@ -46,15 +49,9 @@ function Pages() {
         <Route exact path='/profile' element={<ViewProfile/>}/>
         <Route exact path='/logout' element={<Logout/>}/>
         <Route exact path='/redeem' element={<Redeem/>}/>
-    
-        {/*Isa's code*/}
         <Route exact path='/survey' element={<Survey/>}/>
         <Route exact path='/functionalitysurvey' element={<FunctionalitySurvey/>}/>
         <Route exact path='/onlineresources' element={<OnlineResources/>}/>
-        {/*<Route exact path='/addquestions' element={<AddQuestions/>}/>*/}
-        {/* end of Isa's code */}
-    
-    
         <Route exact path='/editprofile' element={<EditProfile/>}/>
         <Route exact path='/generalquiz' element={<Quiz/>}/>
         <Route exact path='/logout' element={<Logout/>}/>

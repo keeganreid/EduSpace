@@ -15,7 +15,7 @@ function Chat() {
   const [sessionName, setSessionName] = useState([]);
   const { currentUser } = useAuth();
 
-  const getSessionName = async (chatID) => {
+  const getSessionName = async (chatID) => {  //we need to retrieve the name of the current module using the document id
     const sessionChatRef = doc(allSessions, chatID);
     const docSnap = await getDoc(sessionChatRef);
     if (docSnap.exists()) {
@@ -23,7 +23,7 @@ function Chat() {
     }
   }
 
-  let params = useParams();
+  let params = useParams();  // we get the document id using the parameter included in the link
 
   useEffect(() => {
     getSessionName(params.chatID)
@@ -59,12 +59,10 @@ function ChatRoom(currentUser) {
   const dummy = useRef();
   let params = useParams();
 
-  const messagesRef = collection(allSessions, params.chatID, 'messages');
+  const messagesRef = collection(allSessions, params.chatID, 'messages');  //we are using group chats, so we use the documentid
+                                                                  //to navigate to the correct session chat, whereby messages can be posted
 
-
-
-
-  const q = query(messagesRef, orderBy("createdAt", "asc"), limit(25));
+  const q = query(messagesRef, orderBy("createdAt", "asc"), limit(25));  //messages displayed in chronilogical order
 
   const [messages] = useCollectionData(q, { idField: 'id' });
 
@@ -74,15 +72,7 @@ function ChatRoom(currentUser) {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    // const { uid, photoURL } = auth.currentUser;
-
-
-    //  const { uid } = currentUserUID;
-    //  const { displayName } = currentUserDisplay;
-
-
-
-    await addDoc(messagesRef, ({
+    await addDoc(messagesRef, ({  //adding the message to the afforementioned collection inside a session
       text: formValue,
       createdAt: serverTimestamp(),
       senderID: currentUser.currentUserUID,
@@ -91,13 +81,15 @@ function ChatRoom(currentUser) {
     }))
 
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
+    dummy.current.scrollIntoView({ behavior: 'smooth' });  //scroll if a new message is sent.
   }
 
   return (<>
     <main style={{'height': '60vh'}}>
 
-      {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+      {/* displaying messages */}
+
+      {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)} 
 
       <span ref={dummy}></span>
 
@@ -117,8 +109,10 @@ function ChatMessage(props) {
   const { currentUser } = useAuth();
   const { text, senderID, senderName, photoURL} = props.message;
 
+  //if we send a message, a sent class is used, otherwise the received class is used
   const messageClass = senderID === currentUser.uid ? 'sent' : 'received';
 
+  //if we sent the message, our name will display as "you"
   const name = senderName === currentUser.displayName ? 'You' : senderName;
 
  // const timeSent = new Date(createdAt.seconds * 1000).toLocaleDateString("en-US")

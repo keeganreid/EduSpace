@@ -55,20 +55,27 @@ export const SidebarData = [
   cName: 'nav-text'
   },
   {
+    title: 'Add Question',
+    path: '/addquestion',
+    icon: <IoIcons.IoIosOutlet />,
+    cName: 'nav-text'
+  },
+  {
     title: 'Create Session',
     path: '/createsession',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
   {
-    title: 'Logout',
-    path: '/logout',
+    title: 'Survey',
+    path: '/survey',
     icon: <IoIcons.IoIosOutlet />,
     cName: 'nav-text'
-  },
+  }
+  ,
   {
-    title: 'Add Question',
-    path: '/addquestion',
+    title: 'Logout',
+    path: '/logout',
     icon: <IoIcons.IoIosOutlet />,
     cName: 'nav-text'
   }

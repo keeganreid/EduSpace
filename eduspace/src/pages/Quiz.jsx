@@ -3,24 +3,14 @@ import { getDocs } from 'firebase/firestore';
 import { allQuiz } from '../lib/firestore-collections';
 import SideBar from '../components/SideBar';
 
-async function getQuiz() { // <-- note switching to argument here
+async function getQuiz() {  //this function retrieves all quizes from the database
   const querySnapshot = await getDocs(allQuiz);
   return querySnapshot.docs
     .map((doc) => ({
       data: doc.data(),
       id: doc.id
-    })); // note removal of error suppression
+    }));
 }
-
-// async function getMultipleRandomQuestionIDs(arr, num) {
-//   const shuffled = [...arr].sort(() => 0.5 - Math.random());
-
-//   return shuffled.slice(0, num);
-// }
-
-
-
-
 
 export default function CreateQuiz() {
   // Properties
@@ -35,6 +25,7 @@ export default function CreateQuiz() {
       setScore(score + 1);
     }
 
+    //setting the current question and showing results when the end of the quiz is reached
     if (currentQuestion + 1 < quiz.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
@@ -51,6 +42,7 @@ export default function CreateQuiz() {
 
   useEffect(
     () => {
+      
       getQuiz().then((quizData) => {
         setQuiz(quizData);
       })
@@ -68,7 +60,7 @@ export default function CreateQuiz() {
         <h1 className='pageHeading'>Quiz</h1>
 
         {/* 2. Current Score  */}
-        <h2 style={{'marginLeft': '10em'}}>Score: {score}</h2>
+        <h2>Score: {score}</h2>
 
         {/* 3. Show results or show the question game  */}
         {showResults ? (
@@ -90,7 +82,7 @@ export default function CreateQuiz() {
             </h2>
             <h3 className="question-text" style={{'marginLeft': '2em'}}>{quiz[currentQuestion].data.text}</h3>
 
-
+{/* displaying each answer option, and when it is clicked, it is processed */}
             <ul className='ulquiz'>
               <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option0.isCorrect)} className='liquiz'>
                 {quiz[currentQuestion].data.options.option0.text}
@@ -119,28 +111,3 @@ else{
   return(<>{htmlCode}</>)
 
 }
-
-// import React, { useState } from 'react'
-// import AddQuestions from '../components/AddQuestions'
-
-// function CreateQuiz() {
-
-//   const [questions, setQuestions] = useState([])
-//   return (
-//     <>
-//     <div className='wrapper4'>
-//         <AddQuestions setQuestions={setQuestions} />
-//         <ul className='hele'>
-//             {questions.map(question => <Question firstQuestion={question.firstQuestion} option1={question.option1} option2={question.option2} option3={question.option3} option4={question.option4} />)}
-//         </ul>
-//     </div>
-//     </>
-//   )
-// }
-
-// function Question(props) {
-//     return <li>{props.firstQuestion} 1. {props.option1} 2. {props.option2}
-//     3. {props.option3} 4. {props.option4}</li>
-// }
-
-// export default CreateQuiz

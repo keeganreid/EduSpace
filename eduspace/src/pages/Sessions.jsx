@@ -7,11 +7,11 @@ import SideBar from '../components/SideBar';
 import { Navigate, NavLink } from 'react-router-dom';
 import {motion} from 'framer-motion';
 
-async function getSessionIDs(userId) { // <-- note switching to argument here
+async function getSessionIDs(userId) { 
   const qUserSessions = collection(users, userId, "sessions");
   const querySnapshot = await getDocs(qUserSessions);
   return querySnapshot.docs
-    .map(({ id }) => ({ id })); // this shorthand only works for extracting IDs
+    .map(({ id }) => ({ id })); // we need the ids of all sessions to which our user belongs
 }
 
 async function getSessionsData(userId) {
@@ -29,14 +29,14 @@ async function getSessionsData(userId) {
 
   // if here, we've got sessions to fetch
 
-  // WARNING: The 'in' operator can only handle up to 10 sessions at a time!
-  const qSessionData = query(allSessions, where('__name__', "in", sessionIDs));
+  const qSessionData = query(allSessions, where('__name__', "in", sessionIDs)); //get the fields of all the sessions 
+                                                     //that our user belongs to
   const querySnapshot = await getDocs(qSessionData);
   return querySnapshot.docs
     .map((doc) => ({
       data: doc.data(),
       id: doc.id
-    })); // note removal of error suppression
+    }));
 }
 
 export default function Sessions() {
@@ -45,7 +45,7 @@ export default function Sessions() {
   const [sessions, setSessions] = useState([]);
   const [error, setError] = useState([]);
 
-  const userId = currentUser && currentUser.uid;
+  const userId = currentUser && currentUser.uid; 
 
 
   useEffect(() => {
@@ -68,8 +68,7 @@ export default function Sessions() {
         setSessions(sessionsData);
       })
       .catch((err) => {
-        if (detached) return; // detached? ignore error
-        console.error('Failed to get user session data:', err);
+        if (detached) return; // detached? 
       });
 
     return () => detached = true;
@@ -80,7 +79,8 @@ export default function Sessions() {
     return;
   }
     
-
+// this page displays all sessions to which a user belongs, allowing them to click on the session and navigate to the corresponding chat
+//that is why we pass through the parameter of the session id - because a group chat belongs to that session.
   return (
     <div>
       <SideBar/>
@@ -114,14 +114,3 @@ export default function Sessions() {
     </div>
   )
 }
-
-
-
-
-/*  <ul>
-        {sessions.map((session) => (
-          <li key={session.id}>
-            {session.id} {session.data.location}
-          </li>
-        ))}
-      </ul> */

@@ -2,11 +2,10 @@ import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion';
 import { addDoc } from 'firebase/firestore';
 import { allQuiz } from '../lib/firestore-collections';
-import { FaPray } from 'react-icons/fa';
-import { browserLocalPersistence } from 'firebase/auth';
+import Sidebar from '../components/SideBar';
 
 function AddQuestions() {
-  const questionRef = useRef();
+  const questionRef = useRef();  //question and answer options inputs
   const option1Ref = useRef();
   const option2Ref = useRef();
   const option3Ref = useRef();
@@ -17,9 +16,13 @@ function AddQuestions() {
 
   const [selectedAnswer, setSelectedAnswer] = useState('0');
 
-  const isRadioSelected = (value) => selectedAnswer === value;
+  const isRadioSelected = (value) => selectedAnswer === value;  //retrieving which input was selected as the answer
 
   const handleRadioClick = (e) => setSelectedAnswer(e.currentTarget.value);
+
+  //discovered the reason why questions could not be added to the quiz bank, when we merged, another function called 
+  //handlesubmit was placed in the file and somehow would be called instead of this function. ALl that function contained
+  // was a console.log :( 
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,6 +31,7 @@ function AddQuestions() {
 
     console.log(selectedAnswer);
 
+    //setting the data to be uploaded, dependant on which option was chosen.
       let options; 
       switch (selectedAnswer){
         case '0': options ={
@@ -171,16 +175,9 @@ function AddQuestions() {
     setLoading(false);
   }
 
-
-
-
-  function handleSubmit(e){
-   //console.log(option1);
-    return true;
-    }
-
   return (
     <div>
+      <Sidebar/>
       <motion.div
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
@@ -203,7 +200,7 @@ function AddQuestions() {
                 ref={questionRef}
                 autoComplete="off"
                 required
-                style={{ 'marginRight': '2em' }}
+                style={{ 'marginRight': '5.5em' }}
               />
               <br></br>
               <br></br>
@@ -278,7 +275,7 @@ function AddQuestions() {
                 <input type='radio' value="3" checked={isRadioSelected("3")} onChange={handleRadioClick} />
                 <label>Answer</label>
               </div>
-              <button  disabled={loading} className='bigButton' style={{ 'marginRight': '3em' }}>Add</button>
+              <button className='bigButton' style={{ 'marginRight': '3em' }}>Add</button>
             </form>
             <p className={"errorMessage"} aria-live="assertive">{error}</p>
           </div>
