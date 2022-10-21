@@ -5,6 +5,7 @@ import logo from '../images/logo.png';
 import sun from '../images/SUN.png';
 import {NavLink} from 'react-router-dom';
 
+
 function Landing() {
   return (
     <div>
@@ -16,11 +17,13 @@ function Landing() {
         <div className='landingBottom'>
         <label style={{"font-size": "0.8em", "margin-left": "10px"}}>All rights reserved &copy; 2022</label>
         <img src={sun} alt='Stellenbosch University logo' className='logoImg' />
-        </div>
+        {/* displaying a wave animation using css and a svg image */}
+        </div> 
         <img src={wave} alt='wave-background' className='spacer' style={{'overflow': 'hidden', 'width':'100vw'}} />       
       </section>
 
-      <section>
+{/*  navigate to signup or login page */}
+      <section> 
         <NavLink to='/signup'><button className='landingButton'>Sign up for free</button></NavLink>
         <br></br>
         <br></br>

@@ -7,7 +7,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { motion } from 'framer-motion';
 
 
-const SignUp = () => {
+const SignUp = () => { //references to input fields
     const fullnameRef = useRef();
     const companyNameRef = useRef();
     const companyURLRef = useRef();
@@ -16,8 +16,8 @@ const SignUp = () => {
     const facultyRef = useRef();
     const degreeRef = useRef();
 
-    const [pfp, setPfp] = useState(userIcon);
-    const [image, setImage] = useState(null);
+    const [pfp, setPfp] = useState(userIcon); //used for setting a temporary image to display on a file upload
+    const [image, setImage] = useState(null); //stored in the database as a URL
     const { currentUser, updateUserProfile } = useAuth()
     const navigate = useNavigate();
     const [userType, setUserType] = useState(null);
@@ -25,7 +25,7 @@ const SignUp = () => {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const getUserDetails = async (userID) => {
+    const getUserDetails = async (userID) => {  //gets the type of the user, as business and students have different fields
         const userRef = doc(users, userID);
         const docSnap = await getDoc(userRef);
         if (docSnap.exists()) {
@@ -49,11 +49,10 @@ const SignUp = () => {
         try {
             setError("");
             setLoading(true);
-            await updateUserProfile(image, usernameRef, companyNameRef,
+            await updateUserProfile(userType, image, usernameRef, companyNameRef,
                 companyURLRef, fullnameRef,
                 facultyRef, degreeRef, bioRef);
         } catch (e) {
-            console.log(e);
             setError("Cannot create profile");
             setLoading(false);
             return;
@@ -99,7 +98,7 @@ const SignUp = () => {
                         <label htmlFor='fileUpload' style={{ 'marginLeft': '40%', 'marginRight': '40%' }} className='signIn' >Select Image</label>
                         <input type='file' accept='image/*' id='fileUpload' onChange={imageUpload} style={{ 'visibility': 'hidden' }} />
                     </div>
-                    <form onSubmit={handleSubmit} >
+                    <form onSubmit={handleSubmit} style={{"textAlign": "left"}} >
                         <label htmlFor="username">
                             Username <span className='redText'>*</span>
                         </label>
@@ -222,7 +221,7 @@ const SignUp = () => {
                     </form>
                     <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
-                <div className='waveContainer' style={{ 'bottom': '-20vh' }}>
+                <div className='waveContainer' style={{ 'bottom': '-30vh' }}>
                     <div className='wave'></div>
                 </div>
             </section>

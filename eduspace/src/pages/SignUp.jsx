@@ -61,7 +61,7 @@ const SignUp = () => {
         } catch (e) {
             console.log(e);
             if (e.code === "auth/email-already-in-use") {
-                setError("Email/Password combination does not exist")
+                setError("Email already in use.")
             }
             else {
                 setError("Cannot create an account.");

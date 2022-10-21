@@ -65,6 +65,12 @@ export const SidebarData = [
     path: '/logout',
     icon: <IoIcons.IoIosOutlet />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Add Question',
+    path: '/addquestion',
+    icon: <IoIcons.IoIosOutlet />,
+    cName: 'nav-text'
   }
 
 
