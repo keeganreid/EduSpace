@@ -34,7 +34,17 @@ const SignUp = () => { //references to input fields
     }
 
     useEffect(() => {
-        getUserDetails(currentUser.uid)
+        if(currentUser) {
+            if (currentUser.displayName !== undefined){
+            navigate('/home')
+            }
+            else{
+            getUserDetails(currentUser.uid)
+            }
+        }
+        else{
+            navigate('/login')
+        }
     }, [currentUser.uid])
 
 
