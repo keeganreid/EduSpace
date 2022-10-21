@@ -1,93 +1,135 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useContext } from 'react';
-import { CartContext } from '../contexts/CartContext';
-import { allSessions } from './firestore-collections';
-import {query, where, getDocs} from 'firebase/firestore';
 
+import { useEffect } from 'react';
+
+import { useState } from 'react';
+
+import { useContext } from 'react';
+
+import { CartContext } from '../contexts/CartContext';
+
+import { allSessions } from './firestore-collections';
+
+import { query, where, getDocs } from 'firebase/firestore';
+import { useAuth } from '../contexts/auth-context';
 
 
 export const cartdb = []
 
-async function getSessions(){
-  const qSessionData = query(allSessions, where('sessionDate', ">=", new Date().toISOString()));
+
+async function getSessions() {
+
+  const qSessionData = query(allSessions, where('sessionDate', ">=", new Date().toISOString()));  
+
   const querySnapshot = await getDocs(qSessionData);
+
   return querySnapshot.docs
+
     .map((doc) => ({
+
       data: doc.data(),
+
       id: doc.id
-    })); 
+
+    }));
+
 }
 
+const database = [];
 
- const database = [];
-  // {
-  //   name: "DB item 1",
-  //   price: 10.99,
-  //   id: 1
-  // },
-  // {
-  //   name: "DB item 2",
-  //   price: 24.99,
-  //   id: 2
-  // },
-  // {
-  //   name: "DB item 3",
-  //   price: 18.99,
-  //   id: 3
-  // },
+
 
 export const DataList = () => {
+
   const { items, setItems } = useContext(CartContext)
+
   const [sessions, setSessions] = useState([]);
 
-  useEffect(
-    () => {
-      console.log(getSessions());
-      getSessions().then(
-        (sessionData) =>{
-          setSessions(sessionData);
-        }
-      );
-      // sessions.map((session) =>{
-      //   database.push(session);
-      // })
-    },[])
+  const {currentUser} = useAuth();
 
-  // <h1 className= "headerMarketplace">Study session booking</h1>
+
+
+
+  useEffect(
+
+    () => {
+
+      getSessions().then(
+
+        (sessionData) => {
+
+            setSessions(sessionData);
+
+        }
+
+      );
+
+    }, [])
+
+
 
   const addToCart = (props) => {
 
     if (items.some((item) => item.id === props.id)) {
 
     } else {
-      const session = { name: props.data.module, price: props.data.price, photoURL: props.data.photoURL,
-         sessionDate: props.data.sessionDate, location: props.data.location, tutor: props.data.tutor, id: props.id };
+
+      const session = {
+        name: props.data.module, price: props.data.price, photoURL: props.data.photoURL,
+
+        sessionDate: props.data.sessionDate, location: props.data.location, tutor: props.data.tutor, id: props.id
+      };
+
       setItems(currentState => [...currentState, session]);
+
       console.log(items)
+
     }
 
 
   }
 
   return (
-    <div className='itemsForSale'>
+
+    <div className='itemsForSale' style={{ 'height': '12em', 'width': '20em' }}>
+
       {
+
         sessions.map(item => (
-          <div>
-            <h1>{item.data.tutor}</h1>
-            <img src= {item.data.photoURL}/>
-            <h2>{item.data.module}</h2>
-            <h3>{item.data.location}</h3>
-            <h2>{new Date(item.data.sessionDate).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }</h2>
-            <h2>{new Date(item.data.sessionDate).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})}</h2>
-            <h4>R {item.data.price}</h4>
-            <button onClick={() => addToCart(item)}>Add to cart</button>
+          item.data.tutor !== currentUser.displayName ? 
+
+          <div className='cartTiles'>
+
+            <h1 style={{ 'fontSize': '1.5em' }}>{item.data.module}</h1>
+
+            <img className='marketplaceImages' src={item.data.photoURL} style={{ 'height': '8em', 'width': '8em' }} />
+
+            <h2 style={{ 'fontSize': '1.25em', 'marginTop': '1em' }}>Tutor: {item.data.tutor}</h2>
+
+            <h3 style={{ 'display': 'flex', 'align-items': 'left', 'justify-content': 'left', 'marginLeft': '1em' }}>Location: {item.data.location}</h3>
+
+            <h3 style={{ 'display': 'flex', 'align-items': 'left', 'justify-content': 'left', 'marginLeft': '1em' }}>Date: {new Date(item.data.sessionDate).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })}</h3>
+
+            <h3 style={{ 'display': 'flex', 'align-items': 'left', 'justify-content': 'left', 'marginLeft': '1em' }}>Time: {new Date(item.data.sessionDate).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</h3>
+
+
+
+            <div style={{ 'display': 'flex', 'align-items': 'left', 'justify-content': 'left', 'marginLeft': '1em' }}>
+
+              <h3>Price: R {item.data.price} </h3>  <button className='addToCart' onClick={() => addToCart(item)}>Add to cart</button>
+
+            </div>
+
             <hr />
+
           </div>
-        ))
+
+        : <></>))
+
       }
+
     </div>
+
   )
-};
+
+}; 

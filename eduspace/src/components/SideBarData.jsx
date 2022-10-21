@@ -12,33 +12,28 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Sessions',
-    path: '/sessions',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Schedule',
-    path: '/schedule',
-    icon: <IoIcons.IoIosAddCircle />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Profile',
     path: '/profile',
     icon: <IoIcons.IoMdContact />,
     cName: 'nav-text'
   },
   {
-    title: 'Forum',
-    path: '/forum',
-    icon: <IoIcons.IoMdPaper />,
+    title: 'Sessions',
+    path: '/sessions',
+    icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
   {
-    title: 'Logout',
-    path: '/logout',
-    icon: <IoIcons.IoIosOutlet />,
+    title: 'Marketplace',
+    path: '/marketplace',
+    icon: <IoIcons.IoMdWallet />,
+    cName: 'nav-text'
+  },
+
+  {
+    title: 'Forum',
+    path: '/forum',
+    icon: <IoIcons.IoMdPaper />,
     cName: 'nav-text'
   },
   {
@@ -60,17 +55,17 @@ export const SidebarData = [
   cName: 'nav-text'
   },
   {
-    title: 'Session Booking',
-    path: '/marketplace',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Create Session',
     path: '/createsession',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
+  {
+    title: 'Logout',
+    path: '/logout',
+    icon: <IoIcons.IoIosOutlet />,
+    cName: 'nav-text'
+  }
 
 
 ];

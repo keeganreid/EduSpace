@@ -104,10 +104,12 @@ export default function Forum() {
 }
 
   return (
-    <main id="thread" style={{'height': '75vh'}} >
+    <div>
+      <h1 className='pageHeading'>Forum</h1>
+    <main id="thread" style={{'height': '60vh'}} >
 
       {Forum.map((forum) =>
-      <div key={forum.id} className='a' > 
+      <div key={forum.id} className='a' style={{'textAlign': 'left'}} > 
 
       <div style={{'display': 'inline'}}>
        <img  className='myUpButton' src={up} alt="upvote" onClick={ () => upVote(forum.id, forum.data().count) }/>
@@ -119,7 +121,7 @@ export default function Forum() {
       <div className="thread-post">
      
   
-        {forum.data().title}
+        <label style={{'fontSize': '1.2em', 'color': 'blue'}}>{forum.data().title}</label>
      
         <br></br>
         
@@ -128,7 +130,7 @@ export default function Forum() {
         <br></br>
         
 
-        {forum.data().topic}
+        <label style={{'fontSize': '0.8em'}}>Topic: {forum.data().topic}</label>
         <br></br>
 
         
@@ -138,6 +140,7 @@ export default function Forum() {
       )}
 
     </main>
+    </div>
 
   )
 

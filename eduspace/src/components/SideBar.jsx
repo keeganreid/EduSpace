@@ -44,6 +44,7 @@ function SideBar() {
           </NavLink>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <main style={{'height': '100%'}}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <NavLink to='#' className='menu-bars'>
@@ -54,17 +55,14 @@ function SideBar() {
               return (
                 <li key={index} className={item.cName}>
                   <NavLink to={item.path}>
-                    {(userType === "company" && item.title === "Study Groups" ? <></> : item.icon) ||
-                    (userType === "student" && item.title === "Create Session" ? <></> : item.title)
-                    }
-                    <span style={{'marginLeft': '1em'}}>{(userType === "company" && item.title === "Study Groups" ? <></> : item.title) ||
-                    (userType === "student" && item.title === "Create Session" ? <></> : item.title)
-                    }</span>
+                  {item.icon}
+                    <span>{item.title}</span>
                   </NavLink>
                 </li>
               );
             })}
           </ul>
+          </main>
         </nav>
       </IconContext.Provider>
     </>

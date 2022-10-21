@@ -73,7 +73,7 @@ function ViewProfile() {
 
                 {activeTab === "About" && (
                     <div>
-                        <label style={{ 'position': 'absolute', 'top': '55%', 'left': '10%' }} className='profileHeading'>About me</label>
+                        <label style={{ 'position': 'absolute', 'top': '55%', 'left': '10%' }} className='profileHeading'>About</label>
                         <p style={{ 'position': 'absolute', 'top': '60%', 'left': '10%', 'fontSize': '1.1em' }}> {user.bio}</p>
                     </div>
                 )}

@@ -454,7 +454,7 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #24be24cb;
+  background: #020a24cb;
 }
 
 main::-webkit-scrollbar-thumb {
@@ -854,7 +854,7 @@ cursor: pointer;
   }
   
   .nav-text a:hover {
-    background-color: #320466;
+    background-color: #040449;
   }
   
   .nav-menu-items {
@@ -1046,7 +1046,7 @@ cursor: pointer;
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
-  background: #660425;
+  background: #660425bb;
   z-index: 10;
 }
  
@@ -1896,3 +1896,210 @@ header h1 {
   cursor: pointer;
   background-color: #660425b0;
 }
+
+/*start of button 27 from websit of 88 buttons*/
+
+/* CSS */
+.button-27 {
+  appearance: none;
+  background-color: rgba(102, 4, 37, 0.249);
+  border: 2px solid rgba(102, 4, 37, 0.249);
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 20px;
+  min-width: 50px;
+  width:50px;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 10%;
+  height: 6%;
+  will-change: transform;
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+/*Edding of button number 27 */
+.purchase{ 
+
+  font-size: 1em; 
+
+  font-weight: 100; 
+
+  background-color: rgba(102, 4, 37, 0.249); 
+
+  height: 2.5em; 
+
+  width: 10em; 
+
+  margin-left:10mm; 
+
+  margin-top:3.5mm; 
+
+  border-radius: 6%; 
+
+  border: none; 
+
+} 
+
+ 
+ 
+
+.purchase:hover{ 
+
+  background-color: rgba(102, 4, 37, 0.211); 
+
+  cursor: pointer; 
+
+} 
+
+ 
+ 
+
+.addToCart{ 
+
+  font-size: 1em; 
+
+  font-weight: 100; 
+
+  background-color: rgba(126, 6, 44, 0.86); 
+
+  height: 2.5em; 
+
+  width: 10em; 
+
+  margin-left:10mm; 
+
+  margin-top:3.5mm; 
+
+  border-radius: 6%; 
+
+  border: none; 
+
+} 
+
+ 
+ 
+
+.addToCart:hover{ 
+
+  background-color: rgba(126, 6, 44, 0.572); 
+
+  cursor: pointer; 
+
+} 
+
+ 
+ 
+ 
+
+.deleteFromCart{ 
+
+  font-size: 1em; 
+
+  font-weight: 100; 
+
+  background-color: #d3d3d3; 
+
+  height: 2.5em; 
+
+  width: 2em; 
+
+  margin-left:10mm; 
+
+  margin-top:3.5mm; 
+
+  border: none; 
+
+} 
+
+ 
+ 
+ 
+
+.deleteFromCart:hover { 
+
+  cursor: pointer; 
+
+  color: rgb(102, 4, 37); 
+
+} 
+
+ 
+ 
+
+  .itemsForSale{ 
+
+    
+
+  margin-left:10mm; 
+
+  position:absolute; 
+
+  left:10mm; top:20mm; 
+
+  } 
+
+ 
+
+  .cartTiles{ 
+
+    left:10mm; top:20mm; 
+
+    background-color: #ae8895; 
+
+  } 
+
+   
+
+  .addButton{ 
+
+  position:relative; 
+
+  left:10mm;  
+
+  /* top:-1mm; */ 
+
+  } 
+
+
+
+  .itemPrice{ 
+
+  position:relative; 
+
+  left:-2mm; 
+
+  top:11mm; 
+
+  } 
+
+   
+
+ 

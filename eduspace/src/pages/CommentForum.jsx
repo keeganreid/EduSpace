@@ -131,12 +131,12 @@ function CommentForum() {
 <SideBar/>
     <div>
       
-      <label>{Forum.title}</label>
+      <label style={{'fontSize': '1.2em', 'color': 'blue'}}>{Forum.title}</label>
       <br></br>
       <label>{Forum.message}</label>
       <br></br>
-      <label>{Forum.topic}</label>
-      <main style={{'height': '70vh'}}>
+      <label style={{'fontSize': '0.8em'}}>Topic: {Forum.topic}</label>
+      <main style={{'height': '65vh'}}>
       {cmnt.map((forum) =>
         <div key={forum.id} className="thread-post">
 

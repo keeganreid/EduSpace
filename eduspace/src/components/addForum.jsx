@@ -92,9 +92,9 @@ import { allSessions, users } from "../lib/firestore-collections";
     <div >
      {/*This is where you type to declare the actual */}
         <form onSubmit={handleSubmit}>
-            <input type='text' id='title' ref={titleRef} placeholder='Title'/>
-            <input type='text' id='message' ref={messageRef} placeholder='Message'/>
-            <input type='text' id='topic' ref={topicRef} placeholder='Topic'/>
+            <input type='text' id='title' ref={titleRef} placeholder='Title' className='textInput' style={{'width': '20%', 'marginRight': '0.4em'}}/>
+            <input type='text' id='message' ref={messageRef} placeholder='Message' className='textInput' style={{'width': '20%', 'marginRight': '0.4em'}}/>
+            <input type='text' id='topic' ref={topicRef} placeholder='Topic' className='textInput' style={{'width': '20%', 'marginRight': '0.4em'}}/>
 
             <button className='button-27' type = 'submit'onClick={() => increaseStointHandler(currentUser.uid, userPoints)}>Add forum!</button>
            {/* <button type='submit'>Add a comment</button>*/}

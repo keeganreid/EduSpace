@@ -13,10 +13,8 @@ import SessionChat from './SessionChat';
 import Sessions from './Sessions';
 import CreateProfile from './CreateProfile';
 import ViewProfile from './ViewProfile';
-import PaymentSuccesful from './PaymentSuccesful';
 import Logout from './Logout';
 import AddQuestions from '../components/AddQuestions';
-//import {Routes, Route, useLocation} from 'react-router-dom';
 import EditProfile from './EditProfile';
 import {AnimatePresence} from 'framer-motion';
 import Redeem from './Redeem';
@@ -25,11 +23,6 @@ import Survey from './Survey';
 import FunctionalitySurvey from '../components/FunctionalitySurvey';
 import OnlineResources from './OnlineResources';
 import Quiz from './Quiz';
-//import Checkout from './Checkout'
-// AddQuestions from './AddQuestions';
-
-import AddUser from '../components/addUser';
-
 
 
 
@@ -51,7 +44,6 @@ function Pages() {
         <Route exact path='/sessions' element={<Sessions/>}/>
         <Route exact path='/createprofile' element={<CreateProfile/>}/>
         <Route exact path='/profile' element={<ViewProfile/>}/>
-        <Route exact path='/payment/:success' element={<PaymentSuccesful/>}/>
         <Route exact path='/logout' element={<Logout/>}/>
         <Route exact path='/redeem' element={<Redeem/>}/>
     
