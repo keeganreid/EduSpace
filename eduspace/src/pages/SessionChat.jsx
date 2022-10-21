@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 import SideBar from '../components/SideBar';
 import Send from '../images/send.png'
 import { motion } from 'framer-motion';
-import userIcon from '../images/user.png';
 
 
 function Chat() {

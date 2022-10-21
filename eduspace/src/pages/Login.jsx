@@ -51,7 +51,12 @@ const Login = () => {
         }
 
         setLoading(false);
-        navigate("/home");
+        if (currentUser.displayName === null){
+        navigate("/createprofile");
+        }
+        else{
+            navigate("/home")
+        }
     }
 
     return (

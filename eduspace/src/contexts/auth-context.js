@@ -42,27 +42,44 @@ export function AuthProvider({ children }) {
         return methods.signInWithEmailAndPassword(auth, email, password)
 }
 
-async function updateUserProfile(file, usernameRef, fullnameRef, facultyRef, degreeRef, bioRef) {
+async function updateUserProfile(file, usernameRef, companyNameRef, companyURLRef, fullnameRef, facultyRef, degreeRef, bioRef) {
     if (file !== null){
+
+        let photoURL;
+        if (file.name !== undefined){
     const fileRef = ref(storage, `profilePictures/${file.name}`);
     
     const snapshot = await uploadBytes(fileRef, file);
-    const photoURL = await getDownloadURL(fileRef);
+    photoURL = await getDownloadURL(fileRef);
+        }
+        else{
+            photoURL = file;
+        }
   
-    methods.updateProfile(currentUser, {photoURL, displayName: usernameRef});
+   await methods.updateProfile(currentUser, {photoURL, displayName: usernameRef.current.value});
 }
 else{
-  methods.updateProfile(currentUser, {photoURL: 'https://firebasestorage.googleapis.com/v0/b/eduspace-ed18f.appspot.com/o/defaultProfile%2Fuser.png?alt=media&token=1f3735cc-e3d5-4f02-956f-9a46d2c77191'
-  , displayName: usernameRef});
+ await methods.updateProfile(currentUser, {photoURL: 'https://firebasestorage.googleapis.com/v0/b/eduspace-ed18f.appspot.com/o/defaultProfile%2Fuser.png?alt=media&token=1f3735cc-e3d5-4f02-956f-9a46d2c77191'
+  , displayName: usernameRef.current.value});
 }
-
-    let data = {
+let data;
+if (currentUser.userType === 'student'){
+    data = {
         username: currentUser.displayName,
-        fullname: fullnameRef,
-        faculty: facultyRef,
-        degree: degreeRef,
-        bio: bioRef
+        fullname: fullnameRef.current.value,
+        faculty: facultyRef.current.value,
+        degree: degreeRef.current.value,
+        bio: bioRef.current.value
     }
+}
+else{
+    data = {
+        username: currentUser.displayName,
+        companyName: companyNameRef.current.value,
+        companyURL: companyURLRef.current.value,
+        bio: bioRef.current.value
+    }
+}
 
     return updateDoc(doc(users, currentUser.uid), data);
     

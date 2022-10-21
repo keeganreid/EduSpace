@@ -1,11 +1,17 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useAuth } from '../contexts/auth-context';
 import { useNavigate } from 'react-router-dom';
 import userIcon from '../images/user.png';
+import { users } from '../lib/firestore-collections';
+import { getDoc, doc } from 'firebase/firestore';
+import { motion } from 'framer-motion';
+import Datetime from 'react-date'
 
 
 const SignUp = () => {
     const fullnameRef = useRef();
+    const companyNameRef = useRef();
+    const companyURLRef = useRef();
     const usernameRef = useRef();
     const bioRef = useRef();
     const facultyRef = useRef();
@@ -14,28 +20,39 @@ const SignUp = () => {
     const [pfp, setPfp] = useState(userIcon);
     const [image, setImage] = useState(null);
     const { currentUser, updateUserProfile } = useAuth()
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [userType, setUserType] = useState(null);
 
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
+    const getUserDetails = async (userID) => {
+        const userRef = doc(users, userID);
+        const docSnap = await getDoc(userRef);
+        if (docSnap.exists()) {
+            setUserType(docSnap.data().type);
+        }
+    }
+
+    useEffect(() => {
+        // if(currentUser.username !== undefined) {
+        //     navigate('/editProfile')
+        // }
+        getUserDetails(currentUser.uid)
 
 
-    // useEffect(() => {
-    //     if(currentUser.username !== undefined) {
-    //         navigate('/editProfile')
-    //     }
-    // }, [])
+    }, [currentUser.uid])
 
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-        try {  
+        try {
             setError("");
             setLoading(true);
-            await updateUserProfile(image, usernameRef.current.value, fullnameRef.current.value,
-                 facultyRef.current.value, degreeRef.current.value, bioRef.current.value);
+            await updateUserProfile(image, usernameRef, companyNameRef,
+                companyURLRef, fullnameRef,
+                facultyRef, degreeRef, bioRef);
         } catch (e) {
             console.log(e);
             setError("Cannot create profile");
@@ -44,7 +61,7 @@ const SignUp = () => {
         }
 
         setLoading(false);
-        navigate('/');
+        navigate('/home');
     }
 
     function imageUpload(e) {
@@ -60,9 +77,19 @@ const SignUp = () => {
     }
 
     return (
-        <>
+        <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+        >
             <section className='marginPage'>
-                <h1 className='pageHeading'>Create a profile</h1>
+                {userType === 'company' && (
+                    <h1 className='pageHeading'>Create a company profile</h1>
+                )}
+                {userType === 'student' && (
+                    <h1 className='pageHeading'>Create a student profile</h1>
+                )}
 
                 <div className='login-register-back'>
                     <div>
@@ -90,55 +117,98 @@ const SignUp = () => {
                         <br></br>
                         <br></br>
 
-                        <label htmlFor="fullname">
-                            Full name
-                        </label> <span className='redText'>*</span>
+                        {userType === 'company' && (
+                            <>
+                                <label htmlFor="companyName">
+                                    Company name
+                                </label> <span className='redText'>*</span>
 
-                        <br></br>
-                        <input
-                            className='textInput'
-                            placeholder="Full name"
-                            type="text"
-                            id="fullname"
-                            ref={fullnameRef}
-                            autoComplete="off"
-                            required
-                        />
-                        <br></br>    
-                        <br></br>
-                        <label htmlFor="faculty">
-                            University Faculty
-                        </label> <span className='redText'>*</span>
-                        <br></br>
-                        <input
-                            className='textInput'
-                            placeholder="Surname"
-                            type="text"
-                            id="faculty"
-                            ref={facultyRef}
-                            autoComplete="off"
-                            required
-                        />
-                        <br></br>
-                        <br></br>
-                        <label htmlFor="degree">
-                            Degree/Diploma
-                        </label> <span className='redText'>*</span>
-                        <br></br>
-                        <input
-                            className='textInput'
-                            placeholder="Degree/Diploma"
-                            type="text"
-                            id="degree"
-                            ref={degreeRef}
-                            autoComplete="off"
-                            required
-                        />
-                        <br></br>
-                        <br></br>
+                                <br></br>
+                                <input
+                                    className='textInput'
+                                    placeholder="Company name"
+                                    type="text"
+                                    id="companyName"
+                                    ref={companyNameRef}
+                                    autoComplete="off"
+                                    required
+                                />
+                                <br></br>
+                                <br></br>
+                                <label htmlFor="companyURL">
+                                    Company website
+                                </label> <span className='redText'>*</span>
+
+                                <br></br>
+                                <input
+                                    className='textInput'
+                                    placeholder="Company website"
+                                    type="text"
+                                    id="companyURL"
+                                    ref={companyURLRef}
+                                    autoComplete="off"
+                                    required
+                                />
+                                <br></br>
+                                <br></br>
+                            </>
+                        )}
+
+                        {userType === 'student' && (
+                            <>
+                                <label htmlFor="fullname">
+                                    Full name
+                                </label> <span className='redText'>*</span>
+
+                                <br></br>
+                                <input
+                                    className='textInput'
+                                    placeholder="Full name"
+                                    type="text"
+                                    id="fullname"
+                                    ref={fullnameRef}
+                                    autoComplete="off"
+                                    required
+                                />
+                                <br></br>
+                                <br></br>
+                                <label htmlFor="faculty">
+                                    University Faculty
+                                </label> <span className='redText'>*</span>
+                                <br></br>
+                                <input
+                                    className='textInput'
+                                    placeholder="Faculty"
+                                    type="text"
+                                    id="faculty"
+                                    ref={facultyRef}
+                                    autoComplete="off"
+                                    required
+                                />
+                                <br></br>
+                                <br></br>
+                                <label htmlFor="degree">
+                                    Degree/Diploma
+                                </label> <span className='redText'>*</span>
+                                <br></br>
+                                <input
+                                    className='textInput'
+                                    placeholder="Degree/Diploma"
+                                    type="text"
+                                    id="degree"
+                                    ref={degreeRef}
+                                    autoComplete="off"
+                                    required
+                                />
+                                <br></br>
+                                <br></br>
+
+                            </>
+                        )}
+
                         <label htmlFor="bio">
                             About
-                        </label>
+                        </label><span className='redText'> *</span>
                         <br></br>
                         <textarea
                             className='bigTextArea'
@@ -146,17 +216,21 @@ const SignUp = () => {
                             id="bio"
                             ref={bioRef}
                             autoComplete="off"
+                            required
                         />
                         <br></br>
                         <button disabled={loading} className='bigButton'>Create Profile</button>
                     </form>
                     <p className={"errorMessage"} aria-live="assertive">{error}</p>
                 </div>
-                <div className='waveContainer' style={{'bottom': '-20vh'}}>
+                <div className='waveContainer' style={{ 'bottom': '-20vh' }}>
                     <div className='wave'></div>
                 </div>
             </section>
-        </>
+
+
+
+        </motion.div>
     )
 }
 

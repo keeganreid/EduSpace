@@ -21,6 +21,7 @@ import ViewProfile from './ViewProfile';
 import PaymentSuccesful from './PaymentSuccesful';
 import Logout from './Logout';
 //import {Routes, Route, useLocation} from 'react-router-dom';
+import EditProfile from './EditProfile';
 import {AnimatePresence} from 'framer-motion';
 import Redeem from './Redeem';
 
@@ -67,6 +68,7 @@ function Pages() {
         {/* end of Isa's code */}
     
     
+        <Route exact path='/editprofile' element={<EditProfile/>}/>
     </Routes>
     </AnimatePresence>
   )
