@@ -16,6 +16,7 @@ import { useAuth } from '../contexts/auth-context';
 
 export const cartdb = []
 
+//calling asyncronous function to fetch all sessions from firebase that have not ended (starting date, not before today)
 
 async function getSessions() {
 
