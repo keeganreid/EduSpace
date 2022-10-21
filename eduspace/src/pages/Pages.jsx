@@ -5,8 +5,6 @@ import SignUp from './SignUp';
 import {Routes, Route,useLocation} from 'react-router-dom';
 import Forum from './Forum';
 import CommentForum from './CommentForum';
-//import Schedule from './Schedule';
-//import StartPage from './StartPage';
 import Landing from './Landing';
 import SessionChat from './SessionChat';
 import Sessions from './Sessions';
@@ -14,7 +12,6 @@ import CreateProfile from './CreateProfile';
 import ViewProfile from './ViewProfile';
 import Logout from './Logout';
 import AddQuestions from '../components/AddQuestions';
-//import {Routes, Route, useLocation} from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion';
 import Redeem from './Redeem';
 

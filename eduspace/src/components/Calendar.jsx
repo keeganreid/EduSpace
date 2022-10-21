@@ -99,7 +99,7 @@ let htmlCode;
 ref={calendarRef}
  plugins={[ dayGridPlugin, timeGridPlugin ]}
  initialView="dayGridMonth" // dummy events
- events = {sessions.events}
+ events = "https://fullcalendar.io/demo-events.json?start=2021-03-22&end=2021-08-22"
  progressiveEventRendering = 'true'
  customButtons={{
    myTimeDayBut: {

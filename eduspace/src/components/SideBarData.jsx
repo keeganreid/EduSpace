@@ -29,12 +29,6 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Study Groups',
-    path: '/profile',
-    icon: <IoIcons.IoMdContact />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Forum',
     path: '/forum',
     icon: <IoIcons.IoMdPaper />,

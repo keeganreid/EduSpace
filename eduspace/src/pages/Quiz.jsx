@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs } from 'firebase/firestore';
 import { allQuiz } from '../lib/firestore-collections';
-import { async } from '@firebase/util';
+import SideBar from '../components/SideBar';
 
 async function getQuiz() { // <-- note switching to argument here
   const querySnapshot = await getDocs(allQuiz);
@@ -62,12 +62,13 @@ export default function CreateQuiz() {
   if (quiz.length !== 0){
  htmlCode = (
     <>
+    <SideBar/>
       <div className="App">
         {/* 1. Header  */}
-        <h1>Quiz</h1>
+        <h1 className='pageHeading'>Quiz</h1>
 
         {/* 2. Current Score  */}
-        <h2>Score: {score}</h2>
+        <h2 style={{'marginLeft': '10em'}}>Score: {score}</h2>
 
         {/* 3. Show results or show the question game  */}
         {showResults ? (
@@ -75,7 +76,7 @@ export default function CreateQuiz() {
           <div className="final-results">
             <h1>Final Results</h1>
             <h2>
-              {score} out of {quiz.length} correct - (
+              {score} out of {quiz.length} correct (
               {(score / quiz.length) * 100}%)
             </h2>
             <button className='quizbut' onClick={() => restartGame()}>Restart game</button>
@@ -84,23 +85,23 @@ export default function CreateQuiz() {
           /* 5. Question Card  */
           <div className="question-card">
             {/* Current Question  */}
-            <h2>
+            <h2 style={{'marginLeft': '2em'}}>
               Question: {currentQuestion + 1} out of {quiz.length}
             </h2>
-            <h3 className="question-text">{quiz[currentQuestion].data.text}</h3>
+            <h3 className="question-text" style={{'marginLeft': '2em'}}>{quiz[currentQuestion].data.text}</h3>
 
 
-            <ul>
+            <ul className='ulquiz'>
               <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option0.isCorrect)} className='liquiz'>
                 {quiz[currentQuestion].data.options.option0.text}
               </li>
-              <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option1.isCorrect)}>
+              <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option1.isCorrect)}className='liquiz'>
                 {quiz[currentQuestion].data.options.option1.text}
               </li>
-              <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option2.isCorrect)}>
+              <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option2.isCorrect)}className='liquiz'>
                 {quiz[currentQuestion].data.options.option2.text}
               </li>
-              <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option3.isCorrect)}>
+              <li onClick={() => optionClicked(quiz[currentQuestion].data.options.option3.isCorrect)}className='liquiz'>
                 {quiz[currentQuestion].data.options.option3.text}
               </li>
             </ul>
@@ -112,7 +113,7 @@ export default function CreateQuiz() {
 
 }
 else{
-  htmlCode = (<></>);
+  htmlCode = (<><SideBar/></>);
 }
   
   return(<>{htmlCode}</>)

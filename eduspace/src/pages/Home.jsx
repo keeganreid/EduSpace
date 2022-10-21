@@ -30,11 +30,11 @@ function Home() {
 
     {/* Pop up for Stoints*/}
     <div className='home2'>
-    <p style={{fontSize:'20px', fontFamily:'sans-serif'}}>Earn rewards with Stoints</p>
+    <p style={{fontSize:'20px', fontFamily:'sans-serif'}}>Earn rewards with Points</p>
     {isOpen && <PointsPopup
       content={<>
-        <b>Earn Rewards with Stoints</b>
-        <p>The EduSpace app will award points to students for participating 
+        <b  style={{'color':'#f2ecec'}}>Earn Rewards with Stoints</b>
+        <p style={{'color':'#f2ecec'}}>The EduSpace app will award points to students for participating 
           in the application services. Students will gain stoints for their 
           participation in study sessions, quizzes, surveys, forums, 
           tutoring sessions and for uploading resources, which can later 
@@ -46,27 +46,10 @@ function Home() {
       type="button"
       value="Click here to learn more"
       onClick={togglePopup}
+      className = 'quizbut'
     />
     </div>
-    {/* Pop up for Toints*/}
-    <div class="home3">
-    <p style={{fontSize:'20px', fontFamily:'sans-serif'}}>Earn rewards with Toints</p>
-    {isOpen && <PointsPopup
-      content={<>
-        <b>Earn Rewards with Toints</b>
-        <p>The same system will be implemented for students when they participate in the 
-          quizzes and host a tutorig session, they in turn earn toints. 
-          Toints are not redeemable, but are a status ranking in the application that allow 
-          a student to be verified and become a tutor.</p>
-      </>}
-      handleClose={togglePopup}
-    />}
-    <input
-      type="button"
-      value="Click here to learn more"
-      onClick={togglePopup}
-    />
-    </div>
+    
   </div>
   </div>
 }
