@@ -1,3 +1,4 @@
+//Page to make the sidebar
 import React, {useState} from 'react'
 import {NavLink} from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';

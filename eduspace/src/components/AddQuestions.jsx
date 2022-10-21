@@ -174,6 +174,11 @@ function AddQuestions() {
 
 
 
+  function handleSubmit(e){
+   //console.log(option1);
+    return true;
+    }
+
   return (
     <div>
       <motion.div
@@ -283,6 +288,8 @@ function AddQuestions() {
         <div className='wave'></div>
       </div>
     </div>
+
+    
   )
 }
 

@@ -16,10 +16,13 @@ class SurveyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isCompleted: false };
+    
 
     this.onCompleteComponent = this.onCompleteComponent.bind(this);
   }
+  
 
+  // updates the question class
   onUpdateQuestionCssClasses = (survey, options) => {
     var classes = options.cssClasses;
 
@@ -37,7 +40,6 @@ class SurveyComponent extends React.Component {
       classes.clearButton += " sq-clearbutton-ip";
       classes.column += " sq-column-ip";
     } else {
-      //classes.mainRoot += " sv_qstn";
       classes.root += " sq-root";
       classes.item += " sq-item";
       classes.label += " sq-label";
@@ -50,9 +52,6 @@ class SurveyComponent extends React.Component {
       if (options.question.getType() === "checkbox") {
         classes.root += " sq-root-cb";
       }
-      /* if (options.question.getType() === "matrixdropdown") {
-        classes.root += " sq-root-rat";
-    }*/
 
       if (options.question.getType() === "radiogroup") {
         classes.root += " sq-root-cb";
@@ -60,9 +59,11 @@ class SurveyComponent extends React.Component {
     }
   };
 
+  // if the survey is completed.
   onCompleteComponent() {
     this.setState({ isCompleted: true });
   }
+  // the survey questions and options to select and comment, after this the survey is completed
   render() {
     let json = {
       pages: [
@@ -78,7 +79,7 @@ class SurveyComponent extends React.Component {
                   type: "matrixdropdown",
                   name: "question2",
                   title:
-                    "Please rank these impacts by fears. Where 1 is the impact your fear the most and 5 you fear the least. Please select numbers in front of the impact text accordingly",
+                    "Please rank how important each is. Where 1 is the least import and 5 you deem most important. Please select numbers in front of the impact text accordingly",
                   columns: [
                     {
                       cellType: "rating",
@@ -120,7 +121,7 @@ class SurveyComponent extends React.Component {
                   type: "matrixdropdown",
                   name: "question3",
                   title:
-                    "Please rank these impacts by fears. Where 1 is the impact your fear the most and 3 you fear the least. Please select numbers in front of the impact text accordingly",
+                  "Please rank how important each is. Where 1 is the least import and 5 you deem most important. Please select numbers in front of the impact text accordingly",
                   columns: [
                     {
                       cellType: "rating",
@@ -177,12 +178,12 @@ class SurveyComponent extends React.Component {
                     {
                       name: "region",
                       title:
-                        "What regions are you willing to sell the solution/products to?"
+                        "Will you buy this tea based on the packaging?"
                     },
                     {
                       name: "business",
                       title:
-                        "What type of business are you willing to sell the solutio/product to? "
+                        "What type of shop are you willing to sell the tea to? "
                     }
                   ]
                 },
@@ -209,16 +210,14 @@ class SurveyComponent extends React.Component {
                   type: "checkbox",
                   name: "car",
                   title:
-                    "🔧Why are considering an evaluation/certification of your Solution/Product?",
-                  // isRequired: true,
+                    "Why are considering buying this tea?",
                   hasOther: true,
                   otherText: "Others",
                   colCount: 4,
-                  // "choicesOrder": "asc",
                   choices: [
                     {
-                      value: "government",
-                      text: "Government bid "
+                      value: "looks",
+                      text: "Looks "
                     },
                     {
                       value: "customer",
@@ -259,8 +258,9 @@ class SurveyComponent extends React.Component {
           ]
         }
 
-        /******************************* End of Likelihood ********************************** */
+        /*end of the survey questions and optios to select */
       ],
+      // if this function says on, the numbers of each question will appear on the page.
       showQuestionNumbers: "off",
       completedHtml: "<p><h4>Security Profile Results !!</h4></p>"
     };
@@ -277,8 +277,7 @@ class SurveyComponent extends React.Component {
         Thank you for completing this survey.
         {/* adding a stoint */}
         <div>
-          <h4>To retrieve your Stoint click below</h4>
-          <AddStoint />
+          <AddStoint/>
         </div>
       </div>
     ) : null;
@@ -310,8 +309,7 @@ function functionalitySurvey() {
 
   return (
     <div className="functionalitySurvey">
-      <h1>Survey</h1>
-      <h2>Please fill out survey</h2>
+      <h1 className="pageHeading">Survey</h1>
       <SurveyComponent />
       {/* <AddStoint /> */}
     </div>

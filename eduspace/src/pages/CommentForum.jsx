@@ -1,8 +1,11 @@
+//the page where the forums will be answered 
 import React, { useEffect, useState, useRef } from 'react'
-import { getDocs, getDoc, onSnapshot, query, collection, where, addDoc, doc} from 'firebase/firestore';
-import { forums } from '../lib/firestore-collections';
+import { getDocs, getDoc, onSnapshot, query, collection, where, addDoc, doc,updateDoc} from 'firebase/firestore';
+import { forums,users } from '../lib/firestore-collections';
 import { useParams, NavLink } from 'react-router-dom'
 import { async } from '@firebase/util';
+import { useAuth } from '../contexts/auth-context';
+import SideBar from '../components/SideBar';
 
 
 
@@ -20,6 +23,26 @@ function CommentForum() {
   const qComments = collection(forums, frmID, "comments")
 
 
+    /*the variables etc. for the points*/
+    const [userPoints, setUserPoints] = useState([]);
+    const { currentUser } = useAuth();
+
+    const getUserPoints = async(userID) => {
+        const userRef = doc(users, userID);
+        const docSnap = await getDoc(userRef);
+      
+        if (docSnap.exists()){
+            setUserPoints(docSnap.data().points);
+        }
+    }
+    
+    useEffect(() => {
+        getUserPoints(currentUser.uid)
+    }, [currentUser.uid])
+
+    /*Ending of the variables etc.*/
+
+  
   /*Adding the clear input code beneth*/
   const firstRef = useRef(null);
   const lastRef = useRef(null);
@@ -33,11 +56,11 @@ function CommentForum() {
     onSnapshot(qComments, (snapShot) =>
       setComments(snapShot.docs.map((doc) => doc)))
   }
-
+//getting the forum from the database the entire time
   const getForumData = async() =>{
     const forumRef = doc(forums, frmID);
     const docSnap = await getDoc(forumRef);
-
+//using on snap to keep fetching from the database
     if(docSnap.exists()){
       setForum(docSnap.data());
     }
@@ -52,7 +75,7 @@ function CommentForum() {
   }, [frmID])
 
 
-
+//THe function for a submit
     function handleSubmit(e){
       e.preventDefault();
 
@@ -70,7 +93,23 @@ function CommentForum() {
 
 
 
+  /*adding a function to add a point every time a session is created*/
 
+  async function increaseStointHandler(userID, pointsRef) {
+     
+    /*Adding code for a user to get points */
+
+    setUserPoints(pointsRef + 5);
+    let data = {
+      points: userPoints + 5
+    }
+    
+    await updateDoc(doc(users, userID), data);
+        alert ("Thank you for answering a question on the form, five points have been given to you!")
+
+  
+  
+}/*done with it*/
 
 
   const refreshPage = ()=>{
@@ -79,7 +118,7 @@ function CommentForum() {
       }
 
 
-      //This code is added to clear the input fields on the entire page
+      //This code WAS added to clear the input fields on the entire page
 
       
 
@@ -88,14 +127,16 @@ function CommentForum() {
 
   return (
 
-
-
+<div>
+<SideBar/>
     <div>
+      
       <label>{Forum.title}</label>
       <br></br>
       <label>{Forum.message}</label>
       <br></br>
       <label>{Forum.topic}</label>
+      <main style={{'height': '70vh'}}>
       {cmnt.map((forum) =>
         <div key={forum.id} className="thread-post">
 
@@ -105,22 +146,26 @@ function CommentForum() {
 
         </div>
       )}
+      </main>
 
       <form onSubmit={handleSubmit}>
-        <input  
-        type='text' 
+        <textarea
         id='message' 
         ref={messageRef} 
-        placeholder='Message' 
+        placeholder='Comment'
+        autoComplete='off'
+        required
+        className='bigTextArea'
 
 
         />
 
-        <button type='submit'  >Add Comment</button>
+        <button type='submit' style={{'marginLeft': '3em', 'position': 'absolute', 'bottom': '2%'}} className='button-27' onClick={() => increaseStointHandler(currentUser.uid, userPoints)} >Add Comment</button>
         {/* <button type='submit'>Add a comment</button>*/}
 
       </form>
 
+    </div>
     </div>
 
 

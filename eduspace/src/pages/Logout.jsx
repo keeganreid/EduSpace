@@ -1,3 +1,4 @@
+//Page where the actual log out is happening
 import React from 'react'
 import wave from '../images/wave.svg';
 import logo from '../images/logo.png';

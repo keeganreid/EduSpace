@@ -1,3 +1,4 @@
+//Adding the pages that should display in the sidebar
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
@@ -43,7 +44,7 @@ export const SidebarData = [
   {
     title: 'Redeem',
     path: '/Redeem',
-    icon: <IoIcons.IoIosOutlet />,
+    icon: <IoIcons.IoMdPricetag />,
     cName: 'nav-text'
   },
   {
@@ -53,9 +54,23 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-  title: 'Create Quiz',
-  path: '/createQuiz',
-  icon: <IoIcons.IoIosBuild />,
+  title: 'General Quiz',
+  path: '/generalquiz',
+  icon: <IoIcons.IoMdSchool />,
   cName: 'nav-text'
-  }
+  },
+  {
+    title: 'Session Booking',
+    path: '/marketplace',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Create Session',
+    path: '/createsession',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
+  },
+
+
 ];
